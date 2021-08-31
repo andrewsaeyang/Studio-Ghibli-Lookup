@@ -1,0 +1,398 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		495DD5AB26DEF13F0099296B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DD5AA26DEF13F0099296B /* AppDelegate.swift */; };
+		495DD5AD26DEF13F0099296B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DD5AC26DEF13F0099296B /* SceneDelegate.swift */; };
+		495DD5AF26DEF13F0099296B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DD5AE26DEF13F0099296B /* ViewController.swift */; };
+		495DD5B226DEF13F0099296B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 495DD5B026DEF13F0099296B /* Main.storyboard */; };
+		495DD5B426DEF1420099296B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 495DD5B326DEF1420099296B /* Assets.xcassets */; };
+		495DD5B726DEF1420099296B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 495DD5B526DEF1420099296B /* LaunchScreen.storyboard */; };
+		495DD5C326DEF20E0099296B /* PlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DD5C226DEF20E0099296B /* PlaceHolder.swift */; };
+		495DD5C726DEF2500099296B /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 495DD5C626DEF2500099296B /* CloudKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		495DD5A726DEF13F0099296B /* Studio Ghibli Lookup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Studio Ghibli Lookup.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		495DD5AA26DEF13F0099296B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		495DD5AC26DEF13F0099296B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		495DD5AE26DEF13F0099296B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		495DD5B126DEF13F0099296B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		495DD5B326DEF1420099296B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		495DD5B626DEF1420099296B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		495DD5B826DEF1420099296B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		495DD5C226DEF20E0099296B /* PlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHolder.swift; sourceTree = "<group>"; };
+		495DD5C426DEF24A0099296B /* Studio Ghibli Lookup.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Studio Ghibli Lookup.entitlements"; sourceTree = "<group>"; };
+		495DD5C626DEF2500099296B /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		495DD5A426DEF13F0099296B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				495DD5C726DEF2500099296B /* CloudKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		495DD59E26DEF13F0099296B = {
+			isa = PBXGroup;
+			children = (
+				495DD5A926DEF13F0099296B /* Studio Ghibli Lookup */,
+				495DD5A826DEF13F0099296B /* Products */,
+				495DD5C526DEF2500099296B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		495DD5A826DEF13F0099296B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				495DD5A726DEF13F0099296B /* Studio Ghibli Lookup.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		495DD5A926DEF13F0099296B /* Studio Ghibli Lookup */ = {
+			isa = PBXGroup;
+			children = (
+				495DD5C426DEF24A0099296B /* Studio Ghibli Lookup.entitlements */,
+				495DD5C126DEF1E20099296B /* Models */,
+				495DD5C026DEF1DB0099296B /* Controllers */,
+				495DD5BF26DEF1D80099296B /* Views */,
+				495DD5BE26DEF1D50099296B /* Resources */,
+			);
+			path = "Studio Ghibli Lookup";
+			sourceTree = "<group>";
+		};
+		495DD5BE26DEF1D50099296B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				495DD5AC26DEF13F0099296B /* SceneDelegate.swift */,
+				495DD5AA26DEF13F0099296B /* AppDelegate.swift */,
+				495DD5B326DEF1420099296B /* Assets.xcassets */,
+				495DD5B826DEF1420099296B /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		495DD5BF26DEF1D80099296B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				495DD5B026DEF13F0099296B /* Main.storyboard */,
+				495DD5B526DEF1420099296B /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		495DD5C026DEF1DB0099296B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				495DD5AE26DEF13F0099296B /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		495DD5C126DEF1E20099296B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				495DD5C226DEF20E0099296B /* PlaceHolder.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		495DD5C526DEF2500099296B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				495DD5C626DEF2500099296B /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		495DD5A626DEF13F0099296B /* Studio Ghibli Lookup */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 495DD5BB26DEF1420099296B /* Build configuration list for PBXNativeTarget "Studio Ghibli Lookup" */;
+			buildPhases = (
+				495DD5A326DEF13F0099296B /* Sources */,
+				495DD5A426DEF13F0099296B /* Frameworks */,
+				495DD5A526DEF13F0099296B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Studio Ghibli Lookup";
+			productName = "Studio Ghibli Lookup";
+			productReference = 495DD5A726DEF13F0099296B /* Studio Ghibli Lookup.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		495DD59F26DEF13F0099296B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					495DD5A626DEF13F0099296B = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+				};
+			};
+			buildConfigurationList = 495DD5A226DEF13F0099296B /* Build configuration list for PBXProject "Studio Ghibli Lookup" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 495DD59E26DEF13F0099296B;
+			productRefGroup = 495DD5A826DEF13F0099296B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				495DD5A626DEF13F0099296B /* Studio Ghibli Lookup */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		495DD5A526DEF13F0099296B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				495DD5B726DEF1420099296B /* LaunchScreen.storyboard in Resources */,
+				495DD5B426DEF1420099296B /* Assets.xcassets in Resources */,
+				495DD5B226DEF13F0099296B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		495DD5A326DEF13F0099296B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				495DD5AF26DEF13F0099296B /* ViewController.swift in Sources */,
+				495DD5AB26DEF13F0099296B /* AppDelegate.swift in Sources */,
+				495DD5AD26DEF13F0099296B /* SceneDelegate.swift in Sources */,
+				495DD5C326DEF20E0099296B /* PlaceHolder.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		495DD5B026DEF13F0099296B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				495DD5B126DEF13F0099296B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		495DD5B526DEF1420099296B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				495DD5B626DEF1420099296B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		495DD5B926DEF1420099296B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		495DD5BA26DEF1420099296B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		495DD5BC26DEF1420099296B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Studio Ghibli Lookup/Studio Ghibli Lookup.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8V4AXZDZQP;
+				INFOPLIST_FILE = "Studio Ghibli Lookup/Resources/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.AndrewDev.Studio-Ghibli-Lookup";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		495DD5BD26DEF1420099296B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Studio Ghibli Lookup/Studio Ghibli Lookup.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8V4AXZDZQP;
+				INFOPLIST_FILE = "Studio Ghibli Lookup/Resources/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.AndrewDev.Studio-Ghibli-Lookup";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		495DD5A226DEF13F0099296B /* Build configuration list for PBXProject "Studio Ghibli Lookup" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				495DD5B926DEF1420099296B /* Debug */,
+				495DD5BA26DEF1420099296B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		495DD5BB26DEF1420099296B /* Build configuration list for PBXNativeTarget "Studio Ghibli Lookup" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				495DD5BC26DEF1420099296B /* Debug */,
+				495DD5BD26DEF1420099296B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 495DD59F26DEF13F0099296B /* Project object */;
+}
