@@ -9,26 +9,36 @@
 /* Begin PBXBuildFile section */
 		495DD5AB26DEF13F0099296B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DD5AA26DEF13F0099296B /* AppDelegate.swift */; };
 		495DD5AD26DEF13F0099296B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DD5AC26DEF13F0099296B /* SceneDelegate.swift */; };
-		495DD5AF26DEF13F0099296B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DD5AE26DEF13F0099296B /* ViewController.swift */; };
+		495DD5AF26DEF13F0099296B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DD5AE26DEF13F0099296B /* TabBarController.swift */; };
 		495DD5B226DEF13F0099296B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 495DD5B026DEF13F0099296B /* Main.storyboard */; };
 		495DD5B426DEF1420099296B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 495DD5B326DEF1420099296B /* Assets.xcassets */; };
 		495DD5B726DEF1420099296B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 495DD5B526DEF1420099296B /* LaunchScreen.storyboard */; };
-		495DD5C326DEF20E0099296B /* PlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DD5C226DEF20E0099296B /* PlaceHolder.swift */; };
 		495DD5C726DEF2500099296B /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 495DD5C626DEF2500099296B /* CloudKit.framework */; };
+		495DD60126E01E770099296B /* StudioGhibliAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DD60026E01E770099296B /* StudioGhibliAPI.swift */; };
+		495DD60526E02AA50099296B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DD60426E02AA50099296B /* HomeViewController.swift */; };
+		495DD60726E02B540099296B /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DD60626E02B540099296B /* NewsViewController.swift */; };
+		495DD60926E02C6C0099296B /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DD60826E02C6C0099296B /* FavoritesViewController.swift */; };
+		495DD60B26E048880099296B /* StudioGhibliAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DD60A26E048880099296B /* StudioGhibliAPIController.swift */; };
+		495DD60E26E048EE0099296B /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DD60D26E048EE0099296B /* NetworkError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		495DD5A726DEF13F0099296B /* Studio Ghibli Lookup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Studio Ghibli Lookup.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		495DD5AA26DEF13F0099296B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		495DD5AC26DEF13F0099296B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		495DD5AE26DEF13F0099296B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		495DD5AE26DEF13F0099296B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		495DD5B126DEF13F0099296B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		495DD5B326DEF1420099296B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		495DD5B626DEF1420099296B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		495DD5B826DEF1420099296B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		495DD5C226DEF20E0099296B /* PlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHolder.swift; sourceTree = "<group>"; };
 		495DD5C426DEF24A0099296B /* Studio Ghibli Lookup.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Studio Ghibli Lookup.entitlements"; sourceTree = "<group>"; };
 		495DD5C626DEF2500099296B /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		495DD60026E01E770099296B /* StudioGhibliAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioGhibliAPI.swift; sourceTree = "<group>"; };
+		495DD60426E02AA50099296B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		495DD60626E02B540099296B /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		495DD60826E02C6C0099296B /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		495DD60A26E048880099296B /* StudioGhibliAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioGhibliAPIController.swift; sourceTree = "<group>"; };
+		495DD60D26E048EE0099296B /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +73,7 @@
 		495DD5A926DEF13F0099296B /* Studio Ghibli Lookup */ = {
 			isa = PBXGroup;
 			children = (
+				495DD60F26E048F10099296B /* Helpers+Extensions */,
 				495DD5C426DEF24A0099296B /* Studio Ghibli Lookup.entitlements */,
 				495DD5C126DEF1E20099296B /* Models */,
 				495DD5C026DEF1DB0099296B /* Controllers */,
@@ -95,7 +106,8 @@
 		495DD5C026DEF1DB0099296B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				495DD5AE26DEF13F0099296B /* ViewController.swift */,
+				495DD60C26E0488C0099296B /* ModelControllers */,
+				495DD60226E025B50099296B /* ViewControllers */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -103,7 +115,7 @@
 		495DD5C126DEF1E20099296B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				495DD5C226DEF20E0099296B /* PlaceHolder.swift */,
+				495DD60026E01E770099296B /* StudioGhibliAPI.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -114,6 +126,33 @@
 				495DD5C626DEF2500099296B /* CloudKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		495DD60226E025B50099296B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				495DD5AE26DEF13F0099296B /* TabBarController.swift */,
+				495DD60426E02AA50099296B /* HomeViewController.swift */,
+				495DD60626E02B540099296B /* NewsViewController.swift */,
+				495DD60826E02C6C0099296B /* FavoritesViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		495DD60C26E0488C0099296B /* ModelControllers */ = {
+			isa = PBXGroup;
+			children = (
+				495DD60A26E048880099296B /* StudioGhibliAPIController.swift */,
+			);
+			path = ModelControllers;
+			sourceTree = "<group>";
+		};
+		495DD60F26E048F10099296B /* Helpers+Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				495DD60D26E048EE0099296B /* NetworkError.swift */,
+			);
+			path = "Helpers+Extensions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,10 +225,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				495DD5AF26DEF13F0099296B /* ViewController.swift in Sources */,
+				495DD60526E02AA50099296B /* HomeViewController.swift in Sources */,
+				495DD60B26E048880099296B /* StudioGhibliAPIController.swift in Sources */,
+				495DD5AF26DEF13F0099296B /* TabBarController.swift in Sources */,
+				495DD60926E02C6C0099296B /* FavoritesViewController.swift in Sources */,
+				495DD60126E01E770099296B /* StudioGhibliAPI.swift in Sources */,
+				495DD60726E02B540099296B /* NewsViewController.swift in Sources */,
+				495DD60E26E048EE0099296B /* NetworkError.swift in Sources */,
 				495DD5AB26DEF13F0099296B /* AppDelegate.swift in Sources */,
 				495DD5AD26DEF13F0099296B /* SceneDelegate.swift in Sources */,
-				495DD5C326DEF20E0099296B /* PlaceHolder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
