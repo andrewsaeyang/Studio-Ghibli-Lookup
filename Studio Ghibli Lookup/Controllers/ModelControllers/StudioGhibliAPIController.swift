@@ -9,6 +9,9 @@ import Foundation
 
 class StudioGhibliAPIController{
     
+    // MARK: - Properties
+    static let shared = StudioGhibliAPIController()
+    
     // Studio Ghibli API
     static let baseURL = URL(string: "https://ghibliapi.herokuapp.com")
     static let filmComponent = "films"
