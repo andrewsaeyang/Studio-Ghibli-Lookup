@@ -13,6 +13,7 @@ struct Film: Codable {
     let runningTime, rtScore: String
     let people, species, locations, vehicles: [URL]
     let url: URL
+    var isFavorite: Bool = false // remove it
 
     enum CodingKeys: String, CodingKey {
         case id, title
@@ -92,3 +93,4 @@ struct Vehicle: Decodable {
         case vehicleURL = "url"
     }
 }// End of struct
+

@@ -19,9 +19,13 @@ class NewsViewController:UIViewController, WKNavigationDelegate{
     """
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "News"
+        
         webView.navigationDelegate = self
         
         webView.loadHTMLString(webContent, baseURL: nil)
+        
+        
     }
     
     
@@ -29,7 +33,7 @@ class NewsViewController:UIViewController, WKNavigationDelegate{
         if navigationAction.navigationType == .linkActivated  {
             if let url = navigationAction.request.url, UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url)
-                print(url)
+                //print(url)
                 print("Redirected to browser. No need to open it locally")
                 decisionHandler(.cancel)
             } else {
