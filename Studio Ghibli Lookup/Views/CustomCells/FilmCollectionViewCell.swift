@@ -22,6 +22,8 @@ class FilmCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    let defaultURL: URL = URL(string: "https://image.tmdb.org/t/p/w500/xi8z6MjzTovVDg8Rho6atJCcKjL.jpg")!
+    
     var isCat: Bool = false
     
     // MARK: - Actions
@@ -51,9 +53,9 @@ class FilmCollectionViewCell: UICollectionViewCell {
                 switch result{
                 
                 case .success(let movie):
-                    if movie[0].id != 15370 {self.isCat.toggle()}
+                    if movie.id != 15370 {self.isCat.toggle()}
                     
-                    self.fetchPoster(for: movie[0])
+                    self.fetchPoster(for: movie)
                     
                 case .failure(let error):
                     
@@ -68,7 +70,7 @@ class FilmCollectionViewCell: UICollectionViewCell {
     func fetchPoster(for movie: Movie){
         
         //move into own function (param of movie) pass in move[0]
-        MovieAPIController.fetchMoviePoster(with: movie.posterPath) { [weak self]result in
+        MovieAPIController.fetchMoviePoster(with: movie.posterPath ?? defaultURL) { [weak self]result in
             
             DispatchQueue.main.async {
                 switch result{

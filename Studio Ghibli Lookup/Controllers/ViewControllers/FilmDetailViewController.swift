@@ -17,6 +17,7 @@ class FilmDetailViewController: UIViewController {
     
     // MARK: - Properties
     var film: Film?
+    let defaultURL: URL = URL(string: "https://image.tmdb.org/t/p/w500/xi8z6MjzTovVDg8Rho6atJCcKjL.jpg")!
     
     // MARK: - Life Cycles
     override func viewDidLoad() {
@@ -44,7 +45,7 @@ class FilmDetailViewController: UIViewController {
                 switch result{
                 
                 case .success(let movie):
-                    self.fetchPoster(for: movie[0])
+                    self.fetchPoster(for: movie)
                     
                 case .failure(let error):
                     print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
@@ -56,7 +57,7 @@ class FilmDetailViewController: UIViewController {
     func fetchPoster(for movie: Movie){
         
         //move into own function (param of movie) pass in move[0]
-        MovieAPIController.fetchMoviePoster(with: movie.posterPath) { [weak self]result in
+        MovieAPIController.fetchMoviePoster(with: movie.posterPath ?? defaultURL) { [weak self]result in
             //print(movie.posterImage)
             DispatchQueue.main.async {
                 switch result{
