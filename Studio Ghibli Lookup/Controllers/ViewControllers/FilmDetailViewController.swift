@@ -15,8 +15,6 @@ class FilmDetailViewController: UIViewController {
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var synopsisLabel: UILabel!
     
-    
-    
     // MARK: - Properties
     var film: Film?
     
@@ -25,7 +23,6 @@ class FilmDetailViewController: UIViewController {
         super.viewDidLoad()
         //blurr()
         updateViews()
-        
     }
     
 // MARK: - Helper Methods
@@ -36,7 +33,6 @@ class FilmDetailViewController: UIViewController {
         filmTitleLabel.text = film.title
         yearLabel.text = film.releaseDate
         synopsisLabel.text = film.filmDescription
-        
         
         MovieAPIController.fetchMovies(with: film.originalTitle) { (result) in
             
@@ -60,7 +56,7 @@ class FilmDetailViewController: UIViewController {
     func fetchPoster(for movie: Movie){
         
         //move into own function (param of movie) pass in move[0]
-        MovieAPIController.fetchMoviePoster(with: movie.posterImage) { [weak self]result in
+        MovieAPIController.fetchMoviePoster(with: movie.posterPath) { [weak self]result in
             //print(movie.posterImage)
             DispatchQueue.main.async {
                 switch result{

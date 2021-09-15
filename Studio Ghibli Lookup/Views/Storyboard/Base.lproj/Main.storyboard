@@ -204,54 +204,6 @@
             </objects>
             <point key="canvasLocation" x="-107.24637681159422" y="947.54464285714278"/>
         </scene>
-        <!--Test View Controller-->
-        <scene sceneID="CAl-BK-Xo4">
-            <objects>
-                <viewController id="e4G-Q2-9ld" customClass="TestViewController" customModule="Studio_Ghibli_Lookup" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="nHY-JZ-2KJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="(title)" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pl-1Y-4VM">
-                                <rect key="frame" x="112" y="366" width="103.5" height="14.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lcl-L9-yLr">
-                                <rect key="frame" x="112" y="145" width="161" height="213"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="161" id="0LI-T3-GFQ"/>
-                                    <constraint firstAttribute="height" constant="213" id="vDr-Zj-i8r"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="(year)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEU-vb-JIw">
-                                <rect key="frame" x="112" y="388.5" width="29" height="12"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <color key="textColor" systemColor="opaqueSeparatorColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="61h-Il-kfd"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Lcl-L9-yLr" firstAttribute="top" secondItem="61h-Il-kfd" secondAttribute="top" constant="101" id="2VP-7f-Rsu"/>
-                            <constraint firstItem="3pl-1Y-4VM" firstAttribute="leading" secondItem="Lcl-L9-yLr" secondAttribute="leading" id="3PC-mf-de5"/>
-                            <constraint firstItem="cEU-vb-JIw" firstAttribute="leading" secondItem="3pl-1Y-4VM" secondAttribute="leading" id="4eU-q8-aLV"/>
-                            <constraint firstItem="cEU-vb-JIw" firstAttribute="top" secondItem="3pl-1Y-4VM" secondAttribute="bottom" constant="8" symbolic="YES" id="RmW-oC-bod"/>
-                            <constraint firstItem="3pl-1Y-4VM" firstAttribute="top" secondItem="Lcl-L9-yLr" secondAttribute="bottom" constant="8" symbolic="YES" id="WDQ-aZ-Tz6"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="filmTitle" destination="3pl-1Y-4VM" id="cdd-Aj-cyN"/>
-                        <outlet property="filmYear" destination="cEU-vb-JIw" id="XYh-8H-9aI"/>
-                        <outlet property="image" destination="Lcl-L9-yLr" id="WIs-gj-LkU"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="G5Z-Rn-rLI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-590" y="-774"/>
-        </scene>
         <!--News View Controller-->
         <scene sceneID="aHs-nz-7r3">
             <objects>

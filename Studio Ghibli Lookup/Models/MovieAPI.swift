@@ -14,15 +14,15 @@ struct MovieTopLevelObject:Decodable {
 
 struct Movie: Decodable{
     
-    let movieTitle: String
-    let posterImage: URL
+    let originalTitle: String
+    let posterPath: URL
     let overview: String
     let rating: Double
     let id: Int
     
     enum CodingKeys: String, CodingKey{
-        case movieTitle = "original_title"
-        case posterImage = "poster_path"
+        case originalTitle = "original_title"
+        case posterPath = "poster_path"
         case overview = "overview"
         case rating = "vote_average"
         case id = "id"

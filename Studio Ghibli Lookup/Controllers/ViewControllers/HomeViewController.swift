@@ -35,7 +35,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         StudioGhibliAPIController.fetchFilms { (result) in
             DispatchQueue.main.async {
                 switch result{
-                
                 case .success(let films):
                     self.films = films
                     self.filteredFilms = films
@@ -49,8 +48,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     // MARK: UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        //print("Number of films for collection \(films.count)")
         return filteredFilms.count
     }
     
@@ -66,20 +63,14 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        // Index Path
-        // Destination
         if segue.identifier == "toDetailVC"{
             guard let cell = sender as? FilmCollectionViewCell,
                   let indexPath = collectionView.indexPath(for: cell),
                   let destination = segue.destination as? FilmDetailViewController else { return }
             
-            // Object to send
             let filmToSend = filteredFilms[indexPath.row]
             
-            // Object to Recieve
             destination.film = filmToSend
-            
         }
     }
     
@@ -129,9 +120,7 @@ extension HomeViewController: UISearchBarDelegate{
         self.filteredFilms = filtered
         self.collectionView.reloadData()
         
-        
     }
-    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         filteredFilms = films
         collectionView.reloadData()

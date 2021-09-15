@@ -15,7 +15,7 @@ class MovieAPIController{
     // MARK: - BASEURL
     //https://api.themoviedb.org
     static let baseURL = URL(string: "https://api.themoviedb.org")
-    static let imageBaseURL = URL(string: "https://image.tmdb.org/t/p/w500/")
+    static let imageBaseURL = URL(string: "https://image.tmdb.org/t/p/w500")
     
     // MARK: - COMPONENTS
     static let versionComponent = "3"
@@ -60,7 +60,7 @@ class MovieAPIController{
                 let MovieTL = try JSONDecoder().decode(MovieTopLevelObject.self, from: data)
                 completion(.success(MovieTL.results))
             }catch{
-                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                print("IS THIS THE Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                 completion(.failure(.unableToDecode))
             }
             
@@ -77,7 +77,7 @@ class MovieAPIController{
         let task = URLSession.shared.dataTask(with: finalURL) { data, response, error in
             if let error = error{
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
-                completion(.failure(.invalidURL))
+                completion(.failure(.thrownError(error)))
             }
             
             if let response = response as? HTTPURLResponse {
@@ -88,16 +88,47 @@ class MovieAPIController{
             }
             
             guard let data = data else { return completion(.failure(.noData)) }
-            
-            guard let image = UIImage(data: data) else { return completion(.failure(.unableToDecode))}
-            
+            guard let image = UIImage(data: data) else { return completion(.failure(.noImage))}
             completion(.success(image))
-            
-            
         }
         task.resume()
-        
-        
     }
+    
+    
+    //https://image.tmdb.org/t/p/w500/xi8z6MjzTovVDg8Rho6atJCcKjL.jpg
+    
+    static func fetchMoviePoster(for poster: Bool, completion: @escaping (Result<UIImage, NetworkError>) -> Void){
+        
+        let finalURL: URL
+        
+        if poster {
+            finalURL = URL(string: "https://image.tmdb.org/t/p/w500/tOSnFE9e82iH3ZAzSTtuOkBsabJ.jpg")!
+            
+        }else{
+            finalURL = URL(string: "https://image.tmdb.org/t/p/w500/avPMO5cnaGHgLaNiAIhy33WoQLm.jpg")!
+        }
+        
+        print(finalURL)
+        let task = URLSession.shared.dataTask(with: finalURL) { data, response, error in
+            if let error = error{
+                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                completion(.failure(.thrownError(error)))
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                if response.statusCode != 200
+                {
+                    print("STATUS CODE: \(response.statusCode)")
+                }
+            }
+            
+            guard let data = data else { return completion(.failure(.noData)) }
+            guard let image = UIImage(data: data) else { return completion(.failure(.noImage))}
+            completion(.success(image))
+        }
+        task.resume()
+    }
+    
+    
     
 }
