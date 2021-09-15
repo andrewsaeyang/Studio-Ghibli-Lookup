@@ -15,7 +15,7 @@ struct MovieTopLevelObject:Decodable {
 struct Movie: Decodable{
     
     let originalTitle: String
-    let posterPath: URL
+    let posterPath: URL?
     let overview: String
     let rating: Double
     let id: Int
