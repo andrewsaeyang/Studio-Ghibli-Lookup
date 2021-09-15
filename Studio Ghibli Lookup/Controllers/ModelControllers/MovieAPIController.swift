@@ -21,10 +21,14 @@ class MovieAPIController{
     static let versionComponent = "3"
     static let searchComponent = "search"
     static let movieComponent = "movie"
+    static let creditsComponent = "credits"
     
     // MARK: - QUERY ITEMS
     static let apiKeyKey = "api_key"
     static let apiKeyValue = "a0c4dab30fc5e01de42209a6868523d2"
+    
+    static let appendToResponseKey = "append_to_response"
+    static let appendToResponseValue = "person"
     
     static let searchTermKey = "query"
     
@@ -129,6 +133,48 @@ class MovieAPIController{
         task.resume()
     }
     
-    
+    static func fetchPeople(for movieId: String, completion: @escaping (Result<[Cast], NetworkError>) -> Void){
+        
+        guard let baseURL = baseURL else { return (completion(.failure(.invalidURL)))}
+        //https://api.themoviedb.org/3/movie/8392/credits?api_key=a0c4dab30fc5e01de42209a6868523d2&append_to_response=movie,person
+        let versionURL = baseURL.appendingPathComponent(versionComponent)
+        let movieURL = versionURL.appendingPathComponent(movieComponent)
+        let movieIdURL = movieURL.appendingPathComponent(movieId)
+        let creditsURL = movieIdURL.appendingPathComponent(creditsComponent)
+        
+        //queries
+        var components = URLComponents(url: creditsURL, resolvingAgainstBaseURL: true)
+        let accessQuery = URLQueryItem(name: apiKeyKey, value: apiKeyValue)
+        let appendToResponseQuery = URLQueryItem(name:appendToResponseKey , value: appendToResponseValue)
+        
+        components?.queryItems = [accessQuery, appendToResponseQuery]
+        
+        guard let finalURL = components?.url else { return completion(.failure(.invalidURL))}
+        print("Final URL for list of People is \(finalURL)")
+        
+        let task = URLSession.shared.dataTask(with: finalURL) { data, response, error in
+            
+            if let error = error {
+                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                return(completion(.failure(.thrownError(error))))
+            }
+            
+            guard let data = data else { return completion(.failure(.noData))}
+            
+            do{
+                let peopleTL = try JSONDecoder().decode(CastTopLevelObject.self, from: data)
+                let cast = peopleTL.cast
+                completion(.success(cast))
+                
+            }catch{
+                
+                
+            }
+            
+        }
+        task.resume()
+        
+        
+    }
     
 }

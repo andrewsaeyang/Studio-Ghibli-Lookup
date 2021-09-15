@@ -7,9 +7,10 @@
 
 import Foundation
 
-struct MovieTopLevelObject:Decodable {
+struct MovieTopLevelObject: Decodable {
     let page: Int
     let results: [Movie]
+    
 }
 
 struct Movie: Decodable{
@@ -28,4 +29,7 @@ struct Movie: Decodable{
         case id = "id"
         
     }
+    
 }
+
+
