@@ -13,6 +13,7 @@ enum NetworkError: LocalizedError{
     case thrownError(Error)
     case noData
     case unableToDecode
+    case noImage
     
     var errorDescription: String?{
         
@@ -26,6 +27,8 @@ enum NetworkError: LocalizedError{
             return "The server responded with no data"
         case .unableToDecode:
             return "There was an error trying to decode the data."
+        case .noImage:
+            return "Could not create UIImage from data"
         }
     }
 }// End of enum

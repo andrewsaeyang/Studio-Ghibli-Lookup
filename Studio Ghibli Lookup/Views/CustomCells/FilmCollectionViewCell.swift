@@ -22,11 +22,13 @@ class FilmCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    var isCat: Bool = false
+    
     // MARK: - Actions
     @IBAction func favoriteButtonTapped(_ sender: Any) {
         
         print("Favorite Button tapped for \(film!.title)")
-        film!.isFavorite.toggle()
+        
         setFavoriteButton(for: film!)
     }
     
@@ -35,6 +37,7 @@ class FilmCollectionViewCell: UICollectionViewCell {
     func updateViews(){
         guard let film = film else { return }
         
+        if film.id == "4e236f34-b981-41c3-8c65-f8c9000b94e7" { isCat.toggle()}
         setFavoriteButton(for: film)
         
         //guard let movie = movie else { return }
@@ -48,10 +51,15 @@ class FilmCollectionViewCell: UICollectionViewCell {
                 switch result{
                 
                 case .success(let movie):
+                    if movie[0].id != 15370 {self.isCat.toggle()}
+                    
                     self.fetchPoster(for: movie[0])
                     
                 case .failure(let error):
-                    print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                    
+                    self.fetchPoster(with: self.isCat)
+                
+                    print("Film collection view Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                 }
             }
         }
@@ -60,7 +68,29 @@ class FilmCollectionViewCell: UICollectionViewCell {
     func fetchPoster(for movie: Movie){
         
         //move into own function (param of movie) pass in move[0]
-        MovieAPIController.fetchMoviePoster(with: movie.posterImage) { [weak self]result in
+        MovieAPIController.fetchMoviePoster(with: movie.posterPath) { [weak self]result in
+            
+            DispatchQueue.main.async {
+                switch result{
+                
+                case .success(let image):
+                    
+                    self?.filmImageView.image = image
+                    
+                    self?.filmImageView.contentMode = .scaleAspectFill
+                    self?.filmImageView.layer.cornerRadius = 8
+                    
+                    
+                case .failure(let error):
+                    print("Error IMAGE in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                }
+            }
+        }
+    }
+    
+    func fetchPoster(with isCat: Bool){
+        
+        MovieAPIController.fetchMoviePoster(for: isCat) { [weak self]result in
             
             DispatchQueue.main.async {
                 switch result{
@@ -79,12 +109,14 @@ class FilmCollectionViewCell: UICollectionViewCell {
     }
     
     func setFavoriteButton(for film:Film){
-        
+        /*
         if film.isFavorite{
             favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         }else{
             favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
         }
+        
+        */
     }
     
 }// End of class
