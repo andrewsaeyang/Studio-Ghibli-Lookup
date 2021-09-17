@@ -31,5 +31,25 @@ struct Movie: Decodable{
     }
     
 }
+struct CastTopLevelObject: Decodable {
+    
+    let cast: [Cast]
+}
+
+struct Cast: Decodable{
+    let id: Int
+    let name: String
+    let knownForDepartment: String
+    let character: String
+    let profilePath: URL?
+    
+    enum CodingKeys: String, CodingKey{
+        case id
+        case name, character
+        case knownForDepartment = "known_for_department"
+        case profilePath = "profile_path"
+    }
+    
+}
 
 

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4948A9C526F1C1FC0093C789 /* Cast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4948A9C426F1C1FC0093C789 /* Cast.swift */; };
+		4948A9EE26F46B660093C789 /* VoiceActorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4948A9ED26F46B660093C789 /* VoiceActorTableViewCell.swift */; };
 		495DD5AB26DEF13F0099296B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DD5AA26DEF13F0099296B /* AppDelegate.swift */; };
 		495DD5AD26DEF13F0099296B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DD5AC26DEF13F0099296B /* SceneDelegate.swift */; };
 		495DD5B226DEF13F0099296B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 495DD5B026DEF13F0099296B /* Main.storyboard */; };
@@ -30,7 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4948A9C426F1C1FC0093C789 /* Cast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cast.swift; sourceTree = "<group>"; };
+		4948A9ED26F46B660093C789 /* VoiceActorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceActorTableViewCell.swift; sourceTree = "<group>"; };
 		495DD5A726DEF13F0099296B /* Studio Ghibli Lookup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Studio Ghibli Lookup.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		495DD5AA26DEF13F0099296B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		495DD5AC26DEF13F0099296B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,7 +112,6 @@
 			isa = PBXGroup;
 			children = (
 				4998036A26EA822C008BBE9E /* CustomViews */,
-				49E07BC326E17C5900871B1C /* CustomCells */,
 				49E07BC426E17C5E00871B1C /* Storyboard */,
 			);
 			path = Views;
@@ -132,7 +131,6 @@
 			children = (
 				495DD60026E01E770099296B /* StudioGhibliAPI.swift */,
 				4998035A26E282F3008BBE9E /* MovieAPI.swift */,
-				4948A9C426F1C1FC0093C789 /* Cast.swift */,
 				4998036F26EBD2A4008BBE9E /* Favorite.swift */,
 				4998037326EC283B008BBE9E /* FavoriteError.swift */,
 			);
@@ -179,16 +177,10 @@
 		4998036A26EA822C008BBE9E /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			path = CustomViews;
-			sourceTree = "<group>";
-		};
-		49E07BC326E17C5900871B1C /* CustomCells */ = {
-			isa = PBXGroup;
-			children = (
+				4948A9ED26F46B660093C789 /* VoiceActorTableViewCell.swift */,
 				49E07BC526E17C7A00871B1C /* FilmCollectionViewCell.swift */,
 			);
-			path = CustomCells;
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		49E07BC426E17C5E00871B1C /* Storyboard */ = {
@@ -270,7 +262,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4948A9C526F1C1FC0093C789 /* Cast.swift in Sources */,
 				4998036326E80378008BBE9E /* FilmDetailViewController.swift in Sources */,
 				4998036126E7E785008BBE9E /* FavoritesTableViewController.swift in Sources */,
 				495DD60B26E048880099296B /* StudioGhibliAPIController.swift in Sources */,
@@ -281,6 +272,7 @@
 				4998037426EC283B008BBE9E /* FavoriteError.swift in Sources */,
 				49E07BC626E17C7A00871B1C /* FilmCollectionViewCell.swift in Sources */,
 				495DD5AB26DEF13F0099296B /* AppDelegate.swift in Sources */,
+				4948A9EE26F46B660093C789 /* VoiceActorTableViewCell.swift in Sources */,
 				4998037226EC2798008BBE9E /* FavoriteController.swift in Sources */,
 				495DD5AD26DEF13F0099296B /* SceneDelegate.swift in Sources */,
 				4998037026EBD2A4008BBE9E /* Favorite.swift in Sources */,

@@ -100,7 +100,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         return UIEdgeInsets(top: inset, left: inset, bottom: 0, right: inset)
     }
     
-}
+}//End of extension
 
 // MARK: - Search Bar Delegate Methods
 extension HomeViewController: UISearchBarDelegate{
@@ -127,4 +127,4 @@ extension HomeViewController: UISearchBarDelegate{
         //searchBar.text = ""
         searchBar.resignFirstResponder()
     }
-}
+} //End of extension

@@ -8,25 +8,31 @@
 import UIKit
 
 class FilmDetailViewController: UIViewController {
-
+    
     // MARK: - Outlets
     @IBOutlet weak var filmImageView: UIImageView!
     @IBOutlet weak var filmTitleLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var synopsisLabel: UILabel!
+    @IBOutlet weak var voiceActorTable: UITableView!
     
     // MARK: - Properties
     var film: Film?
     let defaultURL: URL = URL(string: "https://image.tmdb.org/t/p/w500/xi8z6MjzTovVDg8Rho6atJCcKjL.jpg")!
+    var cast: [Cast] = []
     
     // MARK: - Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         //blurr()
+        
         updateViews()
+        voiceActorTable.delegate = self
+        voiceActorTable.dataSource = self
+        
     }
     
-// MARK: - Helper Methods
+    // MARK: - Helper Methods
     func updateViews(){
         
         guard let film = film else { return }
@@ -34,6 +40,7 @@ class FilmDetailViewController: UIViewController {
         filmTitleLabel.text = film.title
         yearLabel.text = film.releaseDate
         synopsisLabel.text = film.filmDescription
+        
         
         MovieAPIController.fetchMovies(with: film.originalTitle) { (result) in
             
@@ -46,12 +53,14 @@ class FilmDetailViewController: UIViewController {
                 
                 case .success(let movie):
                     self.fetchPoster(for: movie)
+                    self.fetchCast(for: movie)
                     
                 case .failure(let error):
                     print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                 }
             }
         }
+        
     }
     
     func fetchPoster(for movie: Movie){
@@ -63,7 +72,7 @@ class FilmDetailViewController: UIViewController {
                 switch result{
                 
                 case .success(let image):
-                   // self?.view.backgroundColor = UIColor(patternImage: image)
+                    // self?.view.backgroundColor = UIColor(patternImage: image)
                     self?.view.contentMode = .scaleAspectFill
                     
                     self?.filmImageView.image = image
@@ -76,6 +85,22 @@ class FilmDetailViewController: UIViewController {
         }
     }
     
+    func fetchCast(for movie: Movie){
+        
+        MovieAPIController.fetchPeople(for: movie.id) { (result) in
+            
+            DispatchQueue.main.async {
+                switch result{
+                
+                case .success(let cast):
+                    self.cast = cast
+                case .failure(let error):
+                    print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                }
+            }
+        }
+    }
+    
     func blurr(){
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -83,5 +108,23 @@ class FilmDetailViewController: UIViewController {
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.insertSubview(blurEffectView, at: 0)
     }
-
+    
 } // End of class
+extension FilmDetailViewController: UITableViewDelegate, UITableViewDataSource{
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        print("number of cast is \(cast.count)")
+        return cast.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "VOCell", for: indexPath) as? VoiceActorTableViewCell else { return UITableViewCell()}
+        
+        let castMember = cast[indexPath.row]
+        
+        cell.castMember = castMember
+        
+        return cell
+    }
+}
