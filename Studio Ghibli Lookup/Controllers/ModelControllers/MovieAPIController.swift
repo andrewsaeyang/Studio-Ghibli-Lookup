@@ -98,7 +98,6 @@ class MovieAPIController{
         task.resume()
     }
     
-    
     //https://image.tmdb.org/t/p/w500/xi8z6MjzTovVDg8Rho6atJCcKjL.jpg
     
     static func fetchMoviePoster(for poster: Bool, completion: @escaping (Result<UIImage, NetworkError>) -> Void){
@@ -133,13 +132,13 @@ class MovieAPIController{
         task.resume()
     }
     
-    static func fetchPeople(for movieId: String, completion: @escaping (Result<[Cast], NetworkError>) -> Void){
+    static func fetchPeople(for movieId: Int, completion: @escaping (Result<[Cast], NetworkError>) -> Void){
         
         guard let baseURL = baseURL else { return (completion(.failure(.invalidURL)))}
         //https://api.themoviedb.org/3/movie/8392/credits?api_key=a0c4dab30fc5e01de42209a6868523d2&append_to_response=movie,person
         let versionURL = baseURL.appendingPathComponent(versionComponent)
         let movieURL = versionURL.appendingPathComponent(movieComponent)
-        let movieIdURL = movieURL.appendingPathComponent(movieId)
+        let movieIdURL = movieURL.appendingPathComponent(String(movieId))
         let creditsURL = movieIdURL.appendingPathComponent(creditsComponent)
         
         //queries
@@ -167,14 +166,13 @@ class MovieAPIController{
                 completion(.success(cast))
                 
             }catch{
-                
+                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                return completion(.failure(.unableToDecode))
                 
             }
-            
         }
         task.resume()
-        
-        
     }
     
-}
+
+}// End of class
