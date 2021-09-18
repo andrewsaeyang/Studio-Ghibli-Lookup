@@ -14,16 +14,21 @@ class VoiceActorTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     
     
+    
     // MARK: - Properties
     var castMember: Cast?{
         didSet{
+            print("Is this working?")
             updateViews()
+            
         }
     }
     
     // MARK: - Helper Methods
     func updateViews(){
         guard let cast = castMember else { return }
+        
+        print("Cast member name is: \(cast.name) and role is: \(cast.character)")
         roleLabel.text = cast.character
         nameLabel.text = cast.name
         

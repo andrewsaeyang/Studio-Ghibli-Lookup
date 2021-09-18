@@ -12,6 +12,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     // MARK: - Properties
     var films: [Film] = []
     var filteredFilms: [Film] = []
+    var cast: [Cast]?
     
     // MARK: - Outlets
     @IBOutlet weak var searchBar: UISearchBar!
@@ -46,6 +47,21 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
+    func fetchCast(for movie: Movie){
+        
+        MovieAPIController.fetchPeople(for: movie.id) { (result) in
+            
+            switch result{
+            case .success(let cast):
+                self.cast = cast
+                print("number of cast is \(cast.count)")
+            case .failure(let error):
+                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+            }
+        }
+    }
+    
+    
     // MARK: UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return filteredFilms.count
@@ -71,6 +87,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             let filmToSend = filteredFilms[indexPath.row]
             
             destination.film = filmToSend
+            
+            
         }
     }
     
@@ -100,7 +118,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         return UIEdgeInsets(top: inset, left: inset, bottom: 0, right: inset)
     }
     
-}//End of extension
+} //End of extension
 
 // MARK: - Search Bar Delegate Methods
 extension HomeViewController: UISearchBarDelegate{

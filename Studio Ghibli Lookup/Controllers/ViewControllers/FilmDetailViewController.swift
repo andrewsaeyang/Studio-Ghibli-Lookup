@@ -14,21 +14,19 @@ class FilmDetailViewController: UIViewController {
     @IBOutlet weak var filmTitleLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var synopsisLabel: UILabel!
-    @IBOutlet weak var voiceActorTable: UITableView!
+    
     
     // MARK: - Properties
     var film: Film?
     let defaultURL: URL = URL(string: "https://image.tmdb.org/t/p/w500/xi8z6MjzTovVDg8Rho6atJCcKjL.jpg")!
-    var cast: [Cast] = []
+    var cast: [Cast]?
     
     // MARK: - Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         //blurr()
-        
         updateViews()
-        voiceActorTable.delegate = self
-        voiceActorTable.dataSource = self
+        
         
     }
     
@@ -53,14 +51,13 @@ class FilmDetailViewController: UIViewController {
                 
                 case .success(let movie):
                     self.fetchPoster(for: movie)
-                    self.fetchCast(for: movie)
+                    
                     
                 case .failure(let error):
                     print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                 }
             }
         }
-        
     }
     
     func fetchPoster(for movie: Movie){
@@ -85,19 +82,17 @@ class FilmDetailViewController: UIViewController {
         }
     }
     
-    func fetchCast(for movie: Movie){
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        MovieAPIController.fetchPeople(for: movie.id) { (result) in
+        // Identifier
+        if segue.identifier == "toTV"{
             
-            DispatchQueue.main.async {
-                switch result{
-                
-                case .success(let cast):
-                    self.cast = cast
-                case .failure(let error):
-                    print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
-                }
-            }
+            // Index Path
+            // Destination
+            guard let destination = segue.destination as? VoiceActorViewController? else { return }
+            destination?.film = film
+         
+            
         }
     }
     
@@ -109,22 +104,5 @@ class FilmDetailViewController: UIViewController {
         view.insertSubview(blurEffectView, at: 0)
     }
     
+    
 } // End of class
-extension FilmDetailViewController: UITableViewDelegate, UITableViewDataSource{
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        print("number of cast is \(cast.count)")
-        return cast.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "VOCell", for: indexPath) as? VoiceActorTableViewCell else { return UITableViewCell()}
-        
-        let castMember = cast[indexPath.row]
-        
-        cell.castMember = castMember
-        
-        return cell
-    }
-}
