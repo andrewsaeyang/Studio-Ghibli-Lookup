@@ -26,8 +26,11 @@ class VoiceActorTableViewCell: UITableViewCell {
     
     // MARK: - Helper Methods
     func updateViews(){
-        guard let cast = castMember else { return }
-        
+        guard let cast = castMember else {
+            roleLabel.text = "Cat"
+            nameLabel.text = "Billy Bob"
+            return }
+        // TODO: Add Photo
         print("Cast member name is: \(cast.name) and role is: \(cast.character)")
         roleLabel.text = cast.character
         nameLabel.text = cast.name
