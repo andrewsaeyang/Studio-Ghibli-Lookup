@@ -7,25 +7,30 @@
 
 import UIKit
 
-class VoiceActorViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+protocol reloadProtocol: AnyObject {
+    func reloadIt()
+}
+
+class VoiceActorViewController: UITableViewController {
     
-    // MARK: - Outlets
-    @IBOutlet weak var actorTable: UITableView!
-    
+   
     
     // MARK: - Properties
     
     var film: Film?
     var castMemebers: [Cast]?
+    weak var delegate: reloadProtocol?
     
     // MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        actorTable.delegate = self
-        actorTable.dataSource = self
         guard let film = film else { return }
         fetchCastMembers(for: film.originalTitle)
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.contentSize.height = 1000
     }
     
     // MARK: - Helper Methods
@@ -56,14 +61,14 @@ class VoiceActorViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     // MARK: - Table view data source
-  
-     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let cast = castMemebers else { return 1}
         print("number of cast in num rows section \(cast.count)")
         return cast.count
     }
     
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "VOCell", for: indexPath) as? VoiceActorTableViewCell,
               let film = film,
               let cast = castMemebers else { return UITableViewCell()}
