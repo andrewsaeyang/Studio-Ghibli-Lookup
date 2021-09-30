@@ -62,7 +62,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func setCastMembers(for movie: Movie, destination: FilmDetailViewController){
         
-        MovieAPIController.fetchPeople(for: movie.id) { (result) in
+        MovieAPIController.fetchCastMembers(for: movie.id) { (result) in
             
             switch result{
             case .success(let cast):
@@ -104,8 +104,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
-    //look into dispatch work items
-    
     func segueCastMembers(for film: Film, destination: FilmDetailViewController){
         fetchCastMembers(for: film.originalTitle, destination: destination)
     }
@@ -118,9 +116,11 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         //we want 90% of the screen to be used, / 2 - 45%
+        
         let width = view.frame.width * 0.45
         
-        return CGSize(width: width, height: width * 4 / 3)
+        return CGSize(width: width, height: width * 3/2 )
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -133,6 +133,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         return UIEdgeInsets(top: inset, left: inset, bottom: 0, right: inset)
     }
 } //End of extension
+
 
 // MARK: - Search Bar Delegate Methods
 extension HomeViewController: UISearchBarDelegate{

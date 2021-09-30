@@ -58,6 +58,17 @@ class FilmDetailViewController: UIViewController {
         }
     }
     
+    // MARK: - Actions
+    
+    @IBAction func didChangeSegment(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0{
+            setEnglish()
+        }else if sender.selectedSegmentIndex == 1{
+            setJapanese()
+        }
+        
+    }
+    
     // MARK: - Helper Methods
     func updateViews(){
         
@@ -73,7 +84,6 @@ class FilmDetailViewController: UIViewController {
             self.tableView.reloadData()
         }
             
-        
         MovieAPIController.fetchMovies(with: film.originalTitle) { (result) in
             
             //dispatch has to do with the view. if in background thread CANNOT UPDATE VIEW. print statemetns are okay, code changes are okay.
@@ -90,8 +100,17 @@ class FilmDetailViewController: UIViewController {
             case .failure(let error):
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
             }
-            
         }
+    }
+    func setEnglish(){
+        filmTitleLabel.text = film?.title
+        title = film?.title
+    }
+    func setJapanese(){
+        //filmTitleLabel.text = film?.originalTitle
+        filmTitleLabel.text = film?.originalTitleRomanised
+        title = film?.originalTitle
+        
     }
     
     func fetchPoster(for movie: Movie){
@@ -130,7 +149,7 @@ class FilmDetailViewController: UIViewController {
     
     func setCastMembers(for movie: Movie){
         
-        MovieAPIController.fetchPeople(for: movie.id) { (result) in
+        MovieAPIController.fetchCastMembers(for: movie.id) { (result) in
             
             switch result{
             case .success(let cast):
@@ -162,8 +181,10 @@ extension FilmDetailViewController: UITableViewDelegate, UITableViewDataSource{
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "actorCell", for: indexPath) as? VoiceActorTableViewCell,
               let castMembers = castMemebers else { return UITableViewCell()}
         
-        cell.nameLabel.text = castMembers[indexPath.row].name
-        cell.roleLabel.text = castMembers[indexPath.row].character
+        //cell.nameLabel.text = castMembers[indexPath.row].name
+        //cell.roleLabel.text = castMembers[indexPath.row].character
+        
+        cell.castMember = castMembers[indexPath.row]
         
         return cell
     }
@@ -174,5 +195,4 @@ extension FilmDetailViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
-    
 }

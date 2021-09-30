@@ -34,7 +34,6 @@ class FilmCollectionViewCell: UICollectionViewCell {
         setFavoriteButton(for: film!)
     }
     
-    
     // MARK: - Helper Methods
     func updateViews(){
         guard let film = film else { return }
