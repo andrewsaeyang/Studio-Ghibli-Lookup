@@ -12,7 +12,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     // MARK: - Properties
     var films: [Film] = []
     var filteredFilms: [Film] = []
-    var cast: [Cast]?
+    var castMemebers: [Cast]?
+    let highPriorityQueue = DispatchQueue.global(qos: .userInitiated)
     
     // MARK: - Outlets
     @IBOutlet weak var searchBar: UISearchBar!
@@ -47,20 +48,31 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
-    func fetchCast(for movie: Movie){
-        
-        MovieAPIController.fetchPeople(for: movie.id) { (result) in
+    func fetchCastMembers(for name: String, destination: FilmDetailViewController){
+        MovieAPIController.fetchMovies(with: name) { (result) in
             
             switch result{
-            case .success(let cast):
-                self.cast = cast
-                print("number of cast is \(cast.count)")
+            case .success(let movie):
+                self.setCastMembers(for: movie, destination: destination)
             case .failure(let error):
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
             }
         }
     }
     
+    func setCastMembers(for movie: Movie, destination: FilmDetailViewController){
+        
+        MovieAPIController.fetchPeople(for: movie.id) { (result) in
+            
+            switch result{
+            case .success(let cast):
+                destination.castMemebers = cast
+                print("number of cast is \(cast.count)")
+            case .failure(let error):
+                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+            }
+        }
+    }
     
     // MARK: UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -71,13 +83,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "filmCell", for: indexPath) as? FilmCollectionViewCell else { return UICollectionViewCell()}
         
-        let film = filteredFilms[indexPath.row]
-        
-        cell.film = film
-        
+        cell.film = filteredFilms[indexPath.row]
         return cell
     }
     
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetailVC"{
             guard let cell = sender as? FilmCollectionViewCell,
@@ -86,10 +96,18 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             
             let filmToSend = filteredFilms[indexPath.row]
             
-            destination.film = filmToSend
-            
-            
+            highPriorityQueue.async {
+                
+                self.segueCastMembers(for: filmToSend, destination: destination)
+                destination.film = filmToSend
+            }
         }
+    }
+    
+    //look into dispatch work items
+    
+    func segueCastMembers(for film: Film, destination: FilmDetailViewController){
+        fetchCastMembers(for: film.originalTitle, destination: destination)
     }
     
 } // End of class
@@ -108,16 +126,12 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
         let width = view.frame.width * 0.45
-        
         let cellsTotalWidth = width * 2
-        
         let leftOverWidth = view.frame.width - cellsTotalWidth
-        
         let inset = leftOverWidth / 3
         //insets == padding
         return UIEdgeInsets(top: inset, left: inset, bottom: 0, right: inset)
     }
-    
 } //End of extension
 
 // MARK: - Search Bar Delegate Methods
@@ -130,14 +144,13 @@ extension HomeViewController: UISearchBarDelegate{
             self.collectionView.reloadData()
             return
         }
+        
         let filtered = filteredFilms.filter {
             $0.title.localizedCaseInsensitiveContains(searchTerm)
-            
         }
         
         self.filteredFilms = filtered
         self.collectionView.reloadData()
-        
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         filteredFilms = films

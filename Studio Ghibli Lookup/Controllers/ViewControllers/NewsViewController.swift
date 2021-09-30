@@ -42,6 +42,4 @@ class NewsViewController:UIViewController, WKNavigationDelegate{
             decisionHandler(.allow)
         }
     }
-    
-    
 }

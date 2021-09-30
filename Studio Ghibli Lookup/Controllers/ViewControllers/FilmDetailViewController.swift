@@ -14,17 +14,19 @@ class FilmDetailViewController: UIViewController {
     @IBOutlet weak var filmTitleLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var synopsisTextView: UILabel!
+    
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
-    
-    
     
     // MARK: - Properties
     var film: Film?
+    var castMemebers: [Cast]?{
+        didSet{
+            updateViews()
+        }
+    }
+    
     let defaultURL: URL = URL(string: "https://image.tmdb.org/t/p/w500/xi8z6MjzTovVDg8Rho6atJCcKjL.jpg")!
-
-    var castMemebers: [Cast]?
     
     // MARK: - Life Cycles
     override func viewDidLoad() {
@@ -32,13 +34,16 @@ class FilmDetailViewController: UIViewController {
         //blurr()
         tableView.delegate = self
         tableView.dataSource = self
-        updateViews()
-    
+        //updateViews()
+        
+        print("Number of cast members at ViewdidLoad is \(castMemebers?.count ?? 0)")
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         tableView.removeObserver(self, forKeyPath: "contentSize")
@@ -50,46 +55,42 @@ class FilmDetailViewController: UIViewController {
                 let newSize = newValue as! CGSize
                 tableViewHeight.constant = newSize.height
             }
-            
         }
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        
-       //scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height+300)
-    }
-    
-   
     
     // MARK: - Helper Methods
     func updateViews(){
         
         guard let film = film else { return }
-        self.title = film.title
-        filmTitleLabel.text = film.title
-        yearLabel.text = film.releaseDate
-        synopsisTextView.text = film.filmDescription
         
+        DispatchQueue.main.async {
+            
+            self.title = film.title
+            self.filmTitleLabel.text = film.title
+            self.yearLabel.text = film.releaseDate
+            self.synopsisTextView.text = film.filmDescription
+            
+            self.tableView.reloadData()
+        }
+            
         
         MovieAPIController.fetchMovies(with: film.originalTitle) { (result) in
             
             //dispatch has to do with the view. if in background thread CANNOT UPDATE VIEW. print statemetns are okay, code changes are okay.
             
             //mightn not need this to call the function.
-            DispatchQueue.main.async {
-                
-                switch result{
-                
-                case .success(let movie):
-                    self.fetchPoster(for: movie)
-                    self.setCastMembers(for: movie)
-                    
-                case .failure(let error):
-                    print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
-                }
+            // DispatchQueue.main.async {
+            
+            switch result{
+            
+            case .success(let movie):
+                self.fetchPoster(for: movie)
+            //self.setCastMembers(for: movie)
+            
+            case .failure(let error):
+                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
             }
+            
         }
     }
     
@@ -141,22 +142,6 @@ class FilmDetailViewController: UIViewController {
         }
     }
     
-    
-    
-    
-    // MARK: - Segue
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   
-        if segue.identifier == "toTV"{
-            
-            if let destination = segue.destination as? VoiceActorViewController{
-                
-                destination.film = film
-                
-            }
-        }
-    }
-    
     func blurr(){
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -165,16 +150,20 @@ class FilmDetailViewController: UIViewController {
         view.insertSubview(blurEffectView, at: 0)
     }
     
-    
 } // End of class
 
 extension FilmDetailViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 13
+        
+        return castMemebers?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "actorCell", for: indexPath) as? VoiceActorTableViewCell else { return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "actorCell", for: indexPath) as? VoiceActorTableViewCell,
+              let castMembers = castMemebers else { return UITableViewCell()}
+        
+        cell.nameLabel.text = castMembers[indexPath.row].name
+        cell.roleLabel.text = castMembers[indexPath.row].character
         
         return cell
     }
@@ -186,10 +175,4 @@ extension FilmDetailViewController: UITableViewDelegate, UITableViewDataSource{
         return UITableView.automaticDimension
     }
     
-}
-
-extension FilmDetailViewController: reloadProtocol{
-    func reloadIt() {
-        
-    }
 }

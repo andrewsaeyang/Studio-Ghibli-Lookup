@@ -50,6 +50,14 @@ extension StudioGhibliAPIController{
         task.resume()
     }
     
+    
+    
+} // End of Extension
+extension StudioGhibliAPIController{
+    /*
+     This extension holds all functions to fetch and filter out all repsective objects within a film to display on the sub menu after you click into a film
+     */
+    
     static func fetchPeople(completion: @escaping(Result<[Person], NetworkError>) -> Void){
         
         guard let baseURL = baseURL else { return completion(.failure(.invalidURL))}
@@ -153,11 +161,6 @@ extension StudioGhibliAPIController{
         task.resume()
     }
     
-} // End of Extension
-extension StudioGhibliAPIController{
-    /*
-     This extension holds all functions to filter out all repsective objects within a film to display on the sub menu after you click into a film
-     */
     static func filterPeople(in filmID: String, toFilter: [Person]) -> [Person] {
         var retval: [Person] = []
         
@@ -180,7 +183,7 @@ extension StudioGhibliAPIController{
     
     static func filterLocations(in filmID: String, toFilter: [Location]) -> [Location] {
         var retval: [Location] = []
-            
+        
         for item in toFilter{
             for film in item.locationAppearance{
                 
