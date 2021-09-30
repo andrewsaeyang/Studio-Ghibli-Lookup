@@ -10,7 +10,6 @@ import WebKit
 
 class NewsViewController:UIViewController, WKNavigationDelegate{
     
-    
     @IBOutlet weak var webView: WKWebView!
     
     var webContent = """
@@ -31,14 +30,14 @@ class NewsViewController:UIViewController, WKNavigationDelegate{
             if let url = navigationAction.request.url, UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url)
                 //print(url)
-                print("Redirected to browser. No need to open it locally")
+                //print("Redirected to browser. No need to open it locally")
                 decisionHandler(.cancel)
             } else {
-                print("Open it locally")
+                //print("Open it locally")
                 decisionHandler(.allow)
             }
         } else {
-            print("not a user click")
+            //print("not a user click")
             decisionHandler(.allow)
         }
     }

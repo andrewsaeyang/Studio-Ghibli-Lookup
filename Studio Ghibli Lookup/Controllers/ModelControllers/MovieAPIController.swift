@@ -105,10 +105,12 @@ class MovieAPIController{
         let finalURL: URL
         
         if poster {
-            finalURL = URL(string: "https://image.tmdb.org/t/p/w500/tOSnFE9e82iH3ZAzSTtuOkBsabJ.jpg")!
+            //finalURL = URL(string: "https://image.tmdb.org/t/p/w500/tOSnFE9e82iH3ZAzSTtuOkBsabJ.jpg")!
+            finalURL = URL(string: "https://image.tmdb.org/t/p/origin/tOSnFE9e82iH3ZAzSTtuOkBsabJ.jpg")!
             
         }else{
-            finalURL = URL(string: "https://image.tmdb.org/t/p/w500/avPMO5cnaGHgLaNiAIhy33WoQLm.jpg")!
+            //finalURL = URL(string: "https://image.tmdb.org/t/p/w500/avPMO5cnaGHgLaNiAIhy33WoQLm.jpg")!
+            finalURL = URL(string: "https://image.tmdb.org/t/p/origin/avPMO5cnaGHgLaNiAIhy33WoQLm.jpg")!
         }
         
         print(finalURL)
@@ -132,7 +134,7 @@ class MovieAPIController{
         task.resume()
     }
     
-    static func fetchPeople(for movieId: Int, completion: @escaping (Result<[Cast], NetworkError>) -> Void){
+    static func fetchCastMembers(for movieId: Int, completion: @escaping (Result<[Cast], NetworkError>) -> Void){
         
         guard let baseURL = baseURL else { return (completion(.failure(.invalidURL)))}
         //https://api.themoviedb.org/3/movie/8392/credits?api_key=a0c4dab30fc5e01de42209a6868523d2&append_to_response=movie,person
@@ -174,5 +176,10 @@ class MovieAPIController{
         task.resume()
     }
     
+    static func fetchCastMemberImage(for imgURL: URL, completion: @escaping(Result<UIImage, NetworkError>) -> Void){
+        
+        
+        
+    }
 
 }// End of class
