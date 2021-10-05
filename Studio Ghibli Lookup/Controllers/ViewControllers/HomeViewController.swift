@@ -15,9 +15,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var castMemebers: [Cast]?
     let highPriorityQueue = DispatchQueue.global(qos: .userInitiated)
     
+    
     // MARK: - Outlets
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
+    
     
     // MARK: - Life Cycles
     override func viewDidLoad() {
@@ -31,6 +33,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.title = "Home"
         
     }
+    
+    // MARK: - Actions
+    
+    
     
     // MARK: - Helper Methods
     func fetchFilms(){

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="N4W-DG-Sfb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="H1g-9T-Gp2">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -18,11 +18,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search film..." showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ssW-Bj-GMb">
-                                <rect key="frame" x="0.0" y="88" width="414" height="51"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="51"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7yX-VB-OmH">
-                                <rect key="frame" x="0.0" y="139" width="414" height="674"/>
+                                <rect key="frame" x="0.0" y="191" width="414" height="622"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bBn-E1-2Ou">
                                     <size key="itemSize" width="128" height="128"/>
@@ -44,15 +44,15 @@
                                                         <constraint firstAttribute="width" secondItem="zfq-dy-Bkh" secondAttribute="height" multiplier="3:2" id="9JG-ay-tKl"/>
                                                     </constraints>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5XV-RU-dtd">
-                                                    <rect key="frame" x="81.5" y="81.5" width="38.5" height="38.5"/>
+                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5XV-RU-dtd">
+                                                    <rect key="frame" x="99" y="99" width="29" height="29"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="5XV-RU-dtd" secondAttribute="height" multiplier="1:1" id="il5-6s-6KZ"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                     <color key="tintColor" red="0.84977577230000001" green="0.76435268119999999" blue="0.93899768589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <state key="normal" image="heart" catalog="system">
-                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="29"/>
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="19" scale="large"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="favoriteButtonTapped:" destination="hJp-gV-qOA" eventType="touchUpInside" id="3eC-ui-3Wq"/>
@@ -61,9 +61,9 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="zfq-dy-Bkh" firstAttribute="top" secondItem="N7v-CV-qFV" secondAttribute="top" id="3fL-As-Eju"/>
-                                                <constraint firstAttribute="bottom" secondItem="5XV-RU-dtd" secondAttribute="bottom" constant="8" id="J7w-BL-Gpj"/>
-                                                <constraint firstItem="5XV-RU-dtd" firstAttribute="width" secondItem="N7v-CV-qFV" secondAttribute="width" multiplier="0.3" id="M0k-8s-bxt"/>
-                                                <constraint firstAttribute="trailing" secondItem="5XV-RU-dtd" secondAttribute="trailing" constant="8" id="S3l-zu-PK2"/>
+                                                <constraint firstAttribute="bottom" secondItem="5XV-RU-dtd" secondAttribute="bottom" id="J7w-BL-Gpj"/>
+                                                <constraint firstItem="5XV-RU-dtd" firstAttribute="width" secondItem="N7v-CV-qFV" secondAttribute="width" multiplier="0.225" id="M0k-8s-bxt"/>
+                                                <constraint firstAttribute="trailing" secondItem="5XV-RU-dtd" secondAttribute="trailing" id="S3l-zu-PK2"/>
                                                 <constraint firstAttribute="trailing" secondItem="zfq-dy-Bkh" secondAttribute="trailing" id="fPa-8O-Ifc"/>
                                                 <constraint firstItem="zfq-dy-Bkh" firstAttribute="leading" secondItem="N7v-CV-qFV" secondAttribute="leading" id="lOZ-WW-SG6"/>
                                                 <constraint firstAttribute="bottom" secondItem="zfq-dy-Bkh" secondAttribute="bottom" id="s3u-Hz-FDL"/>
@@ -144,13 +144,43 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoriteCell" id="d2Z-6A-SgM">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoriteCell" rowHeight="71" id="d2Z-6A-SgM" customClass="FavoritesTableViewCell" customModule="Studio_Ghibli_Lookup" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="71"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d2Z-6A-SgM" id="rUO-Sr-rtH">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="71"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uqx-Kl-QUc">
+                                            <rect key="frame" x="351" y="8" width="55" height="55"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="uqx-Kl-QUc" secondAttribute="height" multiplier="1:1" id="Qow-oA-VYC"/>
+                                            </constraints>
+                                            <state key="normal" image="heart" catalog="system">
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="35"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="favoriteButtonTapped:" destination="d2Z-6A-SgM" eventType="touchUpInside" id="Tlt-Gm-JS0"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jxi-AA-29T">
+                                            <rect key="frame" x="203" y="25" width="41.5" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="uqx-Kl-QUc" secondAttribute="trailing" constant="8" id="BTq-hd-Wy9"/>
+                                        <constraint firstItem="uqx-Kl-QUc" firstAttribute="top" secondItem="rUO-Sr-rtH" secondAttribute="top" constant="8" id="aB3-lh-Cqb"/>
+                                        <constraint firstAttribute="bottom" secondItem="uqx-Kl-QUc" secondAttribute="bottom" constant="8" id="sMr-FD-MtC"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="favoriteButton" destination="uqx-Kl-QUc" id="E05-kK-dL5"/>
+                                    <outlet property="filmTitle" destination="Jxi-AA-29T" id="wvt-qv-1k8"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -162,7 +192,31 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GUT-EQ-2wQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1984" y="-745"/>
+            <point key="canvasLocation" x="1982.608695652174" y="-745.3125"/>
+        </scene>
+        <!--The News View Controller-->
+        <scene sceneID="X4P-Ed-VEe">
+            <objects>
+                <viewController id="H1g-9T-Gp2" customClass="TheNewsViewController" customModule="Studio_Ghibli_Lookup" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oNT-VU-aSQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wqh-IB-6wm">
+                                <rect key="frame" x="100" y="148" width="198" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="HZe-5f-dIL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2mY-pF-V7P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-642.02898550724638" y="-745.3125"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="TlP-WG-8lj">
