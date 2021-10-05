@@ -53,6 +53,8 @@ extension Favorite: Equatable{
     }
     
     static func == (lhs: Favorite, rhs: Favorite) -> Bool {
-        lhs.recordID == rhs.recordID
+        //lhs.recordID == rhs.recordID
+        lhs.id == rhs.id
     }
 }
+

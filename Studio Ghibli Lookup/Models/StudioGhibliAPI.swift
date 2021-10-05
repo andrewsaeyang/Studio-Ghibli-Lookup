@@ -7,13 +7,16 @@
 
 import Foundation
 
+
+
 struct Film: Codable {
     let id, title, originalTitle, originalTitleRomanised: String
     let filmDescription, director, producer, releaseDate: String
     let runningTime, rtScore: String
     let people, species, locations, vehicles: [URL]
     let url: URL
-
+    var isFavorite: Bool = false
+    
     enum CodingKeys: String, CodingKey {
         case id, title
         case originalTitle = "original_title"
@@ -40,7 +43,7 @@ struct Species: Codable {
     let hairColors: String
     let people, films: [URL]
     let url: URL
-
+    
     enum CodingKeys: String, CodingKey {
         case id, name, classification
         case eyeColors = "eye_colors"

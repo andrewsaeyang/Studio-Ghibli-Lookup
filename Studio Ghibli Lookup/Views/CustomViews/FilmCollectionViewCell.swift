@@ -28,10 +28,14 @@ class FilmCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Actions
     @IBAction func favoriteButtonTapped(_ sender: Any) {
-        
+        film?.isFavorite.toggle()
         print("Favorite Button tapped for \(film!.title)")
+        let newFavorite = Favorite(id: film!.id)
+        FavoriteController.shared.favoriteTapped(with: newFavorite)
+        print("")
         
-        setFavoriteButton(for: film!)
+        
+        setFavoriteButton(for: film)
     }
     
     // MARK: - Helper Methods
@@ -109,15 +113,19 @@ class FilmCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func setFavoriteButton(for film:Film){
-        /*
+    func setFavoriteButton(for film: Film!){
+        
+       
+        
         if film.isFavorite{
             favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            //film.isFavorite.toggle()
         }else{
             favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            //film.isFavorite.toggle()
         }
         
-        */
+        
     }
     
 }// End of class

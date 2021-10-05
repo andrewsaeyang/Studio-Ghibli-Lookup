@@ -10,6 +10,9 @@ import UIKit
 
 class MovieAPIController{
     
+    //Cache
+    static let cache = NSCache<NSString, UIImage>()
+    
     //The Movie Database API
     //https://api.themoviedb.org/3/movie/76341?api_key=<<api_key>>
     // MARK: - BASEURL
@@ -74,6 +77,12 @@ class MovieAPIController{
     
     static func fetchMoviePoster(with url: URL, completion: @escaping (Result<UIImage, NetworkError>) -> Void){
         
+        let cacheKey = NSString(string: url.absoluteString)
+        
+        if let image = cache.object(forKey: cacheKey){
+            return completion(.success(image))
+        }
+        
         guard let imageBaseURL = imageBaseURL else { return completion(.failure(.invalidURL))}
         let finalURL = imageBaseURL.appendingPathComponent(url.absoluteString)
         
@@ -93,6 +102,9 @@ class MovieAPIController{
             
             guard let data = data else { return completion(.failure(.noData)) }
             guard let image = UIImage(data: data) else { return completion(.failure(.noImage))}
+            
+            let cacheKey = NSString(string: url.absoluteString)
+            self.cache.setObject(image, forKey: cacheKey)
             completion(.success(image))
         }
         task.resume()
@@ -178,7 +190,9 @@ class MovieAPIController{
     
     static func fetchCastMemberImage(for imgURL: URL, completion: @escaping(Result<UIImage, NetworkError>) -> Void){
         
-        
+    }
+    
+    static func toggle(){
         
     }
 
