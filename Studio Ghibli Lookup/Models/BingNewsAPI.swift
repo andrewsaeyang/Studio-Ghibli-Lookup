@@ -13,55 +13,65 @@ import Foundation
 
 import Foundation
 
-// MARK: - Top Level Object
+// MARK: - BingTopLevelObject
 struct BingTopLevelObject: Codable {
     let type: String?
     let totalEstimatedMatches: Int
-    let value: [Value]
+    let articles: [Article]
     
-    enum codingKeys : String, CodingKey{
+    enum CodingKeys: String, CodingKey{
         case type = "_type"
         case totalEstimatedMatches
-        case value
+        case articles = "value"
         
     }
 }
 
-// MARK: - Value
-struct Value: Codable {
-    let _type, name: String
+// MARK: - Article
+struct Article: Codable {
+    let type, name: String
     let url: String
-    let image: ValueImage?
-    //let valueDescription: String
+    let articleImage: ArticleImage?
+    let description: String
     let provider: [Provider]
     let datePublished: String
+    
+    enum CodingKeys: String, CodingKey{
+        case type = "_type"
+        case articleImage = "image"
+        case name, url, description, provider, datePublished
+    }
 }
 
-// MARK: - ValueImage
-struct ValueImage: Codable {
-    let _type: String
-    let thumbnail: PurpleThumbnail
+// MARK: - ArticleImage
+struct ArticleImage: Codable {
+    let thumbnail: ArticleThumbnail
 }
 
-// MARK: - PurpleThumbnail
-struct PurpleThumbnail: Codable {
-    let _type: String
+// MARK: - ArticleThumbnail
+struct ArticleThumbnail: Codable {
     let contentUrl: String
-    let width, height: Int
+    let width: Int
+    let height: Int
 }
 
 // MARK: - Provider
 struct Provider: Codable {
-    let _type, name: String
+    let type, name: String
     let image: ProviderImage?
+    
+    enum CodingKeys: String, CodingKey{
+        case type = "_type"
+        case name, image
+    }
 }
 
 // MARK: - ProviderImage
 struct ProviderImage: Codable {
-    let thumbnail: FluffyThumbnail
+    let thumbnail: ProviderThumbnail
 }
 
-// MARK: - FluffyThumbnail
-struct FluffyThumbnail: Codable {
+// MARK: - ProviderThumbnail
+struct ProviderThumbnail: Codable {
     let contentUrl: String
 }

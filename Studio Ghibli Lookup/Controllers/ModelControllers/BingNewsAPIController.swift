@@ -5,11 +5,14 @@
 //  Created by Andrew Saeyang on 10/4/21.
 //
 
-import Foundation
+import UIKit
+
 
 class BingNewsAPIController{
     
-   static let searchURL = "https://bing-news-search1.p.rapidapi.com/news/search?q=Studio%20Ghibli&count=20&freshness=Week&textFormat=Raw&safeSearch=Off"
+    
+    
+   static let searchURL = "https://bing-news-search1.p.rapidapi.com/news/search?q=%22Studio%20Ghibli%22&textFormat=Raw&safeSearch=Moderate"
     static let headers = [
         "x-bingapis-sdk": "true",
         "x-rapidapi-host": "bing-news-search1.p.rapidapi.com",

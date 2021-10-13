@@ -19,10 +19,10 @@
 		495DD60726E02B540099296B /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DD60626E02B540099296B /* NewsViewController.swift */; };
 		495DD60B26E048880099296B /* StudioGhibliAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DD60A26E048880099296B /* StudioGhibliAPIController.swift */; };
 		495DD60E26E048EE0099296B /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DD60D26E048EE0099296B /* NetworkError.swift */; };
-		497C7F8E270C198D008617A3 /* FreeNewsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497C7F8D270C198D008617A3 /* FreeNewsAPI.swift */; };
 		497C7F90270C1CAB008617A3 /* BingNewsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497C7F8F270C1CAB008617A3 /* BingNewsAPI.swift */; };
 		497C7F92270C24B0008617A3 /* BingNewsAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497C7F91270C24B0008617A3 /* BingNewsAPIController.swift */; };
 		497C7F94270C2DBF008617A3 /* TheNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497C7F93270C2DBF008617A3 /* TheNewsViewController.swift */; };
+		497C7FB1270F790D008617A3 /* NewsArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497C7FB0270F790D008617A3 /* NewsArticleTableViewCell.swift */; };
 		4998035B26E282F3008BBE9E /* MovieAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4998035A26E282F3008BBE9E /* MovieAPI.swift */; };
 		4998035D26E28307008BBE9E /* MovieAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4998035C26E28307008BBE9E /* MovieAPIController.swift */; };
 		4998035F26E2A1C6008BBE9E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4998035E26E2A1C6008BBE9E /* HomeViewController.swift */; };
@@ -50,10 +50,10 @@
 		495DD60626E02B540099296B /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		495DD60A26E048880099296B /* StudioGhibliAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioGhibliAPIController.swift; sourceTree = "<group>"; };
 		495DD60D26E048EE0099296B /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
-		497C7F8D270C198D008617A3 /* FreeNewsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeNewsAPI.swift; sourceTree = "<group>"; };
 		497C7F8F270C1CAB008617A3 /* BingNewsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingNewsAPI.swift; sourceTree = "<group>"; };
 		497C7F91270C24B0008617A3 /* BingNewsAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingNewsAPIController.swift; sourceTree = "<group>"; };
 		497C7F93270C2DBF008617A3 /* TheNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheNewsViewController.swift; sourceTree = "<group>"; };
+		497C7FB0270F790D008617A3 /* NewsArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsArticleTableViewCell.swift; sourceTree = "<group>"; };
 		4998035A26E282F3008BBE9E /* MovieAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAPI.swift; sourceTree = "<group>"; };
 		4998035C26E28307008BBE9E /* MovieAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAPIController.swift; sourceTree = "<group>"; };
 		4998035E26E2A1C6008BBE9E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -142,7 +142,6 @@
 				495DD60026E01E770099296B /* StudioGhibliAPI.swift */,
 				4998035A26E282F3008BBE9E /* MovieAPI.swift */,
 				4998036F26EBD2A4008BBE9E /* Favorite.swift */,
-				497C7F8D270C198D008617A3 /* FreeNewsAPI.swift */,
 				497C7F8F270C1CAB008617A3 /* BingNewsAPI.swift */,
 			);
 			path = Models;
@@ -194,6 +193,7 @@
 				4948A9ED26F46B660093C789 /* VoiceActorTableViewCell.swift */,
 				49E07BC526E17C7A00871B1C /* FilmCollectionViewCell.swift */,
 				492FFCC92705893100598FDD /* FavoritesTableViewCell.swift */,
+				497C7FB0270F790D008617A3 /* NewsArticleTableViewCell.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -277,7 +277,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				497C7F8E270C198D008617A3 /* FreeNewsAPI.swift in Sources */,
 				4998036326E80378008BBE9E /* FilmDetailViewController.swift in Sources */,
 				4998036126E7E785008BBE9E /* FavoritesTableViewController.swift in Sources */,
 				495DD60B26E048880099296B /* StudioGhibliAPIController.swift in Sources */,
@@ -298,6 +297,7 @@
 				497C7F92270C24B0008617A3 /* BingNewsAPIController.swift in Sources */,
 				4998035B26E282F3008BBE9E /* MovieAPI.swift in Sources */,
 				4998035F26E2A1C6008BBE9E /* HomeViewController.swift in Sources */,
+				497C7FB1270F790D008617A3 /* NewsArticleTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
