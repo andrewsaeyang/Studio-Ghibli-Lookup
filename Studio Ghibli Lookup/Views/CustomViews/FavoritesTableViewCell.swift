@@ -9,12 +9,11 @@ import UIKit
 
 class FavoritesTableViewCell: UITableViewCell {
 
-    
+    // MARK: - Outlets
     @IBOutlet weak var filmTitle: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
     
-    
-  
+    // MARK: - Actions
     @IBAction func favoriteButtonTapped(_ sender: UIButton) {
         
     }
