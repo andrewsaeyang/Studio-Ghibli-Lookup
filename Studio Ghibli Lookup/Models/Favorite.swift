@@ -9,15 +9,15 @@ import UIKit
 import CloudKit
 
 enum FavoriteStrings{
-    static let recordKey = "favorite"
+    static let recordTypeKey = "favorite"
     fileprivate static let idKey = "id"
 }
 class Favorite{
     
-    let id: String
+    let filmID: String
     let recordID: CKRecord.ID
     init(id: String, recordID: CKRecord.ID = (CKRecord.ID(recordName: UUID().uuidString))){
-        self.id = id
+        self.filmID = id
         self.recordID = recordID
         
     }
@@ -36,10 +36,10 @@ extension CKRecord{
     
     ///turning a favorite into a record
     convenience init(favorite: Favorite){
-        self.init(recordType:FavoriteStrings.recordKey, recordID: favorite.recordID)
+        self.init(recordType:FavoriteStrings.recordTypeKey, recordID: favorite.recordID)
         
         self.setValuesForKeys([
-            FavoriteStrings.idKey : favorite.id
+            FavoriteStrings.idKey : favorite.filmID
         ])
     }
 }
@@ -54,7 +54,7 @@ extension Favorite: Equatable{
     
     static func == (lhs: Favorite, rhs: Favorite) -> Bool {
         //lhs.recordID == rhs.recordID
-        lhs.id == rhs.id
+        lhs.filmID == rhs.filmID
     }
 }
 

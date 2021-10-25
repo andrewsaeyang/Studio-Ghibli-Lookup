@@ -6,13 +6,15 @@
 //
 
 import UIKit
+protocol ReloadCollectionDelegate: AnyObject{
+    func updateCollectionView()
+}
 
 class FilmCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Outlets
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var filmImageView: UIImageView!
-    
     
     // MARK: - PROPERTIES
     var movie: Movie?
@@ -22,40 +24,85 @@ class FilmCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    weak var delegate: ReloadCollectionDelegate?
+    
+    //Default poster if movie poster comesback nil
     let defaultURL: URL = URL(string: "https://image.tmdb.org/t/p/w500/xi8z6MjzTovVDg8Rho6atJCcKjL.jpg")!
     
-    var isCat: Bool = false
+    //false = "Only Yesterday". true = "The Cat Returns"
+    private var isCat: Bool = false
     
     // MARK: - Actions
     @IBAction func favoriteButtonTapped(_ sender: Any) {
-        film?.isFavorite.toggle()
-        print("Favorite Button tapped for \(film!.title)")
-        let newFavorite = Favorite(id: film!.id)
-        FavoriteController.shared.favoriteTapped(with: newFavorite)
+        guard let film = film else { return }
+        //On load, compare if film being loaded is in the favorites list, if so, mark the heart as favorited
+        //on tap, check if filmID is in the favorites array. if false, then crete new ckRecord. if true, remove it.
+        //if
+        
+        favoriteHelper(with: film)
+        
+        //film.isFavorite.toggle()
+        print("Favorite Button tapped for \(film.title)")
+        //let newFavorite = Favorite(id: film.id)
+        
+        // FavoriteController.shared.favoriteTapped(with: newFavorite)
         print("")
         
         
-        setFavoriteButton(for: film)
+    }
+    // MARK: - Helper Methods
+    
+    ///This function checks for a matching film and determins if it needs to create a ckRecord with that film or remove a ckRecord of that film
+    func favoriteHelper(with film: Film){
+        
+        //case: There is a matching film
+        if FavoriteController.shared.doesContain(film: film){
+            
+            FavoriteController.shared.deleteFavorite(favorite: FavoriteController.shared.getFavoriteFromSource(with: film)) { result in
+                DispatchQueue.main.async {
+                    switch result{
+                    
+                    case .success(let message):
+                        print(message)
+                        self.setFavoriteButton(for: film)
+                    case .failure(let error):
+                        print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                    }
+                }
+            }
+            
+        }else{
+            FavoriteController.shared.createFavorite(with: film.id) { result in
+                DispatchQueue.main.async {
+                    switch result{
+                    case .success(let message):
+                        print(message)
+                        self.setFavoriteButton(for: film)
+                    case .failure(let error):
+                        print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                    }
+                }
+            }
+        }
     }
     
-    // MARK: - Helper Methods
     func updateViews(){
         guard let film = film else { return }
         
+        //Because films "Only Yesterday and "The Cat Returns" fail at fetching posters, this is my work around for setting thier respective posters
         if film.id == "4e236f34-b981-41c3-8c65-f8c9000b94e7" { isCat.toggle()}
-        setFavoriteButton(for: film)
         
-        //guard let movie = movie else { return }
+        //setFavoriteButton(for: film)
+        setHearts(for: film)
         MovieAPIController.fetchMovies(with: film.originalTitle) { (result) in
             
             //dispatch has to do with the view. if in background thread CANNOT UPDATE VIEW. print statemetns are okay, code changes are okay.
             
-            //mightn not need this to call the function.
             DispatchQueue.main.async {
-                
                 switch result{
                 
                 case .success(let movie):
+                    
                     if movie.id != 15370 {self.isCat.toggle()}
                     
                     self.fetchPoster(for: movie)
@@ -63,7 +110,7 @@ class FilmCollectionViewCell: UICollectionViewCell {
                 case .failure(let error):
                     
                     self.fetchPoster(with: self.isCat)
-                
+                    
                     print("Film collection view Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                 }
             }
@@ -71,7 +118,6 @@ class FilmCollectionViewCell: UICollectionViewCell {
     }
     
     func fetchPoster(for movie: Movie){
-        
         //move into own function (param of movie) pass in move[0]
         MovieAPIController.fetchMoviePoster(with: movie.posterPath ?? defaultURL) { [weak self]result in
             
@@ -81,10 +127,8 @@ class FilmCollectionViewCell: UICollectionViewCell {
                 case .success(let image):
                     
                     self?.filmImageView.image = image
-                    
                     self?.filmImageView.contentMode = .scaleAspectFill
                     self?.filmImageView.layer.cornerRadius = 8
-                    
                     
                 case .failure(let error):
                     print("Error IMAGE in \(#function) : \(error.localizedDescription) \n---\n \(error)")
@@ -93,8 +137,8 @@ class FilmCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    ///This overloaded fetchPoster function is for specifically two films: "Only Yesterday" and "The Cat Returns"
     func fetchPoster(with isCat: Bool){
-        
         MovieAPIController.fetchMoviePoster(for: isCat) { [weak self]result in
             
             DispatchQueue.main.async {
@@ -113,19 +157,18 @@ class FilmCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func setFavoriteButton(for film: Film!){
-        
-       
-        
-        if film.isFavorite{
+    
+    func setFavoriteButton(for film: Film){
+        if FavoriteController.shared.doesContain(film: film){
             favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-            //film.isFavorite.toggle()
         }else{
             favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
-            //film.isFavorite.toggle()
         }
-        
-        
     }
     
+    func setHearts(for film: Film){
+        if FavoriteController.shared.doesContain(film: film){
+            favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        }
+    }
 }// End of class

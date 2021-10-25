@@ -15,11 +15,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var castMemebers: [Cast]?
     let highPriorityQueue = DispatchQueue.global(qos: .userInitiated)
     
-    
     // MARK: - Outlets
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
-    
     
     // MARK: - Life Cycles
     override func viewDidLoad() {
@@ -30,8 +28,14 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         searchBar.delegate = self
         
         fetchFilms()
+        fetchFavorites()
         self.title = "Home"
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //collectionView.reloadData()
     }
     
     // MARK: - Actions
@@ -39,6 +43,23 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     
     // MARK: - Helper Methods
+    
+    func fetchFavorites(){
+        print("Count before fetch: \(FavoriteController.shared.favorites.count)")
+        FavoriteController.shared.fetchAllFavorites { result in
+            DispatchQueue.main.async {
+                switch result{
+                case .success(let message):
+                    print(message)
+                case .failure(let error):
+                    print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                }
+            }
+        }
+        print("Count AFTER fetch: \(FavoriteController.shared.favorites.count)")
+        
+    }
+    
     func fetchFilms(){
         StudioGhibliAPIController.fetchFilms { (result) in
             DispatchQueue.main.async {
@@ -90,6 +111,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "filmCell", for: indexPath) as? FilmCollectionViewCell else { return UICollectionViewCell()}
         
         cell.film = filteredFilms[indexPath.row]
+        cell.delegate = self
         return cell
     }
     
@@ -113,7 +135,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func segueCastMembers(for film: Film, destination: FilmDetailViewController){
         fetchCastMembers(for: film.originalTitle, destination: destination)
     }
-    
 } // End of class
 
 //MARK: - Collection View Flow Layout Delegate Methods
@@ -166,3 +187,9 @@ extension HomeViewController: UISearchBarDelegate{
         searchBar.resignFirstResponder()
     }
 } //End of extension
+
+extension HomeViewController: ReloadCollectionDelegate{
+    func updateCollectionView() {
+        collectionView.reloadData()
+    }
+} // End of Extension

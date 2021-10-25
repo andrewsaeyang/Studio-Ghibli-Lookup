@@ -141,8 +141,8 @@
 			children = (
 				495DD60026E01E770099296B /* StudioGhibliAPI.swift */,
 				4998035A26E282F3008BBE9E /* MovieAPI.swift */,
-				4998036F26EBD2A4008BBE9E /* Favorite.swift */,
 				497C7F8F270C1CAB008617A3 /* BingNewsAPI.swift */,
+				4998036F26EBD2A4008BBE9E /* Favorite.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -190,10 +190,10 @@
 		4998036A26EA822C008BBE9E /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				4948A9ED26F46B660093C789 /* VoiceActorTableViewCell.swift */,
 				49E07BC526E17C7A00871B1C /* FilmCollectionViewCell.swift */,
-				492FFCC92705893100598FDD /* FavoritesTableViewCell.swift */,
+				4948A9ED26F46B660093C789 /* VoiceActorTableViewCell.swift */,
 				497C7FB0270F790D008617A3 /* NewsArticleTableViewCell.swift */,
+				492FFCC92705893100598FDD /* FavoritesTableViewCell.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
