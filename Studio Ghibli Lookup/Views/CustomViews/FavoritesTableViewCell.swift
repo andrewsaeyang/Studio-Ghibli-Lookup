@@ -9,6 +9,14 @@ import UIKit
 
 class FavoritesTableViewCell: UITableViewCell {
 
+    // MARK: - Properties
+    
+    var film: String?{
+        didSet{
+            updateView()
+        }
+    }
+    
     // MARK: - Outlets
     @IBOutlet weak var filmTitle: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
@@ -18,17 +26,10 @@ class FavoritesTableViewCell: UITableViewCell {
         
     }
     
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    // MARK: - Helper Methods
+    func updateView(){
+        guard let film = film else { return }
+        filmTitle.text = film
     }
 
 }

@@ -9,24 +9,30 @@ import UIKit
 
 class FavoritesTableViewController: UITableViewController {
 
+    // MARK: - Properties
+    
+    
+    
+    // MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Favorites"
     }
-
-    // MARK: - Table view data source
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        
-        return 0
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
 
+    // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return FavoriteController.shared.favorites.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteCell", for: indexPath) as? FavoritesTableViewCell else { return UITableViewCell()}
+        
+        cell.film = FavoriteController.shared.favorites[indexPath.row].filmID
+    
         return cell
     }
-}
+} // End of class
