@@ -164,9 +164,8 @@
                                                 <action selector="favoriteButtonTapped:" destination="d2Z-6A-SgM" eventType="touchUpInside" id="Tlt-Gm-JS0"/>
                                             </connections>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jxi-AA-29T">
-                                            <rect key="frame" x="36" y="25" width="41.5" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jxi-AA-29T">
+                                            <rect key="frame" x="8" y="8" width="334" height="55"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -174,7 +173,11 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="uqx-Kl-QUc" secondAttribute="trailing" constant="8" id="BTq-hd-Wy9"/>
+                                        <constraint firstItem="Jxi-AA-29T" firstAttribute="leading" secondItem="rUO-Sr-rtH" secondAttribute="leading" constant="8" id="J0p-eW-MER"/>
+                                        <constraint firstAttribute="bottom" secondItem="Jxi-AA-29T" secondAttribute="bottom" constant="8" id="MgP-bX-iz9"/>
                                         <constraint firstItem="uqx-Kl-QUc" firstAttribute="top" secondItem="rUO-Sr-rtH" secondAttribute="top" constant="8" id="aB3-lh-Cqb"/>
+                                        <constraint firstItem="uqx-Kl-QUc" firstAttribute="leading" secondItem="Jxi-AA-29T" secondAttribute="trailing" constant="9" id="dE4-Ns-hi3"/>
+                                        <constraint firstItem="Jxi-AA-29T" firstAttribute="top" secondItem="rUO-Sr-rtH" secondAttribute="top" constant="8" id="dwg-8E-1bi"/>
                                         <constraint firstAttribute="bottom" secondItem="uqx-Kl-QUc" secondAttribute="bottom" constant="8" id="sMr-FD-MtC"/>
                                     </constraints>
                                 </tableViewCellContentView>

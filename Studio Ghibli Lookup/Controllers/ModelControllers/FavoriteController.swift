@@ -18,8 +18,8 @@ class FavoriteController{
     let privateDB = CKContainer.default().privateCloudDatabase
     
     //CRUD
-    func createFavorite(with id: String, completion: @escaping(Result<String, FavoriteError>) -> Void) {
-        let favorite = Favorite(id: id)
+    func createFavorite(with id: String, title: String, completion: @escaping(Result<String, FavoriteError>) -> Void) {
+        let favorite = Favorite(id: id, title: title)
         
         //Step 2: after creating object, call the ckRecord init
         let ckRecord = CKRecord(favorite: favorite)
@@ -117,7 +117,7 @@ class FavoriteController{
     
     ///This function takes in a Film and returns the favorite that it's associated with in our source of truth
     func getFavoriteFromSource(with film: Film) -> Favorite{
-        var retVal = Favorite(id: "")
+        var retVal = Favorite(id: "", title: "")
         
         for favorite in favorites{
             if favorite.filmID == film.id{

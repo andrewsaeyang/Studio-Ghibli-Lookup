@@ -40,6 +40,7 @@ class FilmCollectionViewCell: UICollectionViewCell {
         //if
         
         favoriteHelper(with: film)
+        setFavoriteButton(for: film)
         
         //film.isFavorite.toggle()
         print("Favorite Button tapped for \(film.title)")
@@ -64,7 +65,7 @@ class FilmCollectionViewCell: UICollectionViewCell {
                     
                     case .success(let message):
                         print(message)
-                        self.setFavoriteButton(for: film)
+                        //self.setFavoriteButton(for: film)
                     case .failure(let error):
                         print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                     }
@@ -72,12 +73,12 @@ class FilmCollectionViewCell: UICollectionViewCell {
             }
             
         }else{
-            FavoriteController.shared.createFavorite(with: film.id) { result in
+            FavoriteController.shared.createFavorite(with: film.id, title: film.title) { result in
                 DispatchQueue.main.async {
                     switch result{
                     case .success(let message):
                         print(message)
-                        self.setFavoriteButton(for: film)
+                        //self.setFavoriteButton(for: film)
                     case .failure(let error):
                         print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                     }
@@ -160,9 +161,11 @@ class FilmCollectionViewCell: UICollectionViewCell {
     
     func setFavoriteButton(for film: Film){
         if FavoriteController.shared.doesContain(film: film){
-            favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-        }else{
+            
             favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        }else{
+            favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            
         }
     }
     

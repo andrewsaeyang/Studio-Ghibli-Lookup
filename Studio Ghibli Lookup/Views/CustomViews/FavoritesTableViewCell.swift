@@ -11,7 +11,7 @@ class FavoritesTableViewCell: UITableViewCell {
 
     // MARK: - Properties
     
-    var film: String?{
+    var favoriteFilm: Favorite?{
         didSet{
             updateView()
         }
@@ -28,8 +28,8 @@ class FavoritesTableViewCell: UITableViewCell {
     
     // MARK: - Helper Methods
     func updateView(){
-        guard let film = film else { return }
-        filmTitle.text = film
+        guard let favoriteFilm = favoriteFilm else { return }
+        filmTitle.text = favoriteFilm.filmTitle
     }
 
 }

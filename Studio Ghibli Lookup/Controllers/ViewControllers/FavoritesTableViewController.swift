@@ -31,7 +31,7 @@ class FavoritesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteCell", for: indexPath) as? FavoritesTableViewCell else { return UITableViewCell()}
         
-        cell.film = FavoriteController.shared.favorites[indexPath.row].filmID
+        cell.favoriteFilm = FavoriteController.shared.favorites[indexPath.row]
     
         return cell
     }
