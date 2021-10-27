@@ -13,7 +13,9 @@ I would like to build out the favorites tab some more to give it more functional
 Clean up code some more and properly use protocol and delegates
 
 
-APIs used:
-https://ghibliapi.herokuapp.com/
-https://developers.themoviedb.org/3/getting-started/introduction
-https://rapidapi.com/microsoft-azure-org-microsoft-cognitive-services/api/bing-image-search1/
+APIs used
+Studio Ghibli API: https://ghibliapi.herokuapp.com/
+
+The movie DB: https://developers.themoviedb.org/3/getting-started/introduction
+
+Bing Search API: https://rapidapi.com/microsoft-azure-org-microsoft-cognitive-services/api/bing-image-search1/
