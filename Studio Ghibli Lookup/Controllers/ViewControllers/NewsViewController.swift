@@ -24,7 +24,7 @@ class NewsViewController:UIViewController, WKNavigationDelegate{
         
         webView.loadHTMLString(webContent, baseURL: nil)
     }
-
+    
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         if navigationAction.navigationType == .linkActivated  {
             if let url = navigationAction.request.url, UIApplication.shared.canOpenURL(url) {

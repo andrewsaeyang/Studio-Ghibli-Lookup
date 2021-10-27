@@ -8,7 +8,7 @@
 import UIKit
 
 class NewsArticleTableViewCell: UITableViewCell {
-
+    
     // MARK: - Properties
     var article: Article?{
         didSet{
@@ -27,18 +27,31 @@ class NewsArticleTableViewCell: UITableViewCell {
     
     // MARK: - Helper methods
     func updateView(){
-        guard let article = article,
-              let link = article.articleImage?.thumbnail.contentUrl else { return }
-        let url = URL(string: link)
-        let data = try? Data(contentsOf: url!)
-        
-        if let imageData = data{
-            let image = UIImage(data: imageData)
-            articleImage.image = image
+        guard let article = article else { return }
+        if let link = article.articleImage?.thumbnail.contentUrl {
+            let url = URL(string: link)
+            let data = try? Data(contentsOf: url!)
             
-        }else{
-            print("NO DATA FOR ARTICLE IMAGE")
+            if let imageData = data{
+                let image = UIImage(data: imageData)
+                articleImage.image = image
+                
+            }else{
+                
+                print("NO DATA FOR ARTICLE IMAGE")
+            }
+        } else {
+            
+            let defaultURL: URL = URL(string: "https://image.tmdb.org/t/p/w500/xi8z6MjzTovVDg8Rho6atJCcKjL.jpg")!
+            let data = try? Data(contentsOf: defaultURL)
+            
+            if let imageData = data{
+                let image = UIImage(data: imageData)
+                articleImage.image = image
+                
+            }
         }
+        
         articleImage.contentMode = .scaleAspectFit
         articleImage.layer.cornerRadius = 8
         

@@ -71,4 +71,10 @@ extension TheNewsViewController: UITableViewDelegate, UITableViewDataSource{
         return cell 
         
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let url = URL(string: newsArticles[indexPath.row].url){
+            UIApplication.shared.open(url)
+        }
+    }
 }
