@@ -7,8 +7,7 @@
 
 import Foundation
 
-
-
+// MARK: - Film
 struct Film: Codable {
     let id, title, originalTitle, originalTitleRomanised: String
     let filmDescription, director, producer, releaseDate: String
@@ -28,16 +27,18 @@ struct Film: Codable {
         case rtScore = "rt_score"
         case people, species, locations, vehicles, url
     }
-}// End of struct
+}
 
+// MARK: - Person
 struct Person: Decodable {
     let id, name: String
     let gender: String
     let age, eye_color, hair_color: String
     let films: [URL]
     let species, url: URL
-}// End of struct
+}
 
+// MARK: - Species
 struct Species: Codable {
     let id, name, classification, eyeColors: String
     let hairColors: String
@@ -52,6 +53,7 @@ struct Species: Codable {
     }
 }
 
+// MARK: - Location
 struct Location: Decodable {
     let locationId: String
     let locationName: String
@@ -72,8 +74,9 @@ struct Location: Decodable {
         case locationAppearance = "films"
         case locationURL = "url"
     }
-}// End of struct
+}
 
+// MARK: - Vehicle
 struct Vehicle: Decodable {
     let vehicleId: String
     let vehicleName: String
@@ -94,5 +97,4 @@ struct Vehicle: Decodable {
         case vehicleAppearance = "films"
         case vehicleURL = "url"
     }
-}// End of struct
-
+}

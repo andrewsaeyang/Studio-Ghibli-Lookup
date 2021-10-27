@@ -31,12 +31,8 @@ class FilmDetailViewController: UIViewController {
     // MARK: - Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        //blurr()
         tableView.delegate = self
         tableView.dataSource = self
-        //updateViews()
-        
-        print("Number of cast members at ViewdidLoad is \(castMemebers?.count ?? 0)")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,7 +62,6 @@ class FilmDetailViewController: UIViewController {
         }else if sender.selectedSegmentIndex == 1{
             setJapanese()
         }
-        
     }
     
     // MARK: - Helper Methods
@@ -83,20 +78,12 @@ class FilmDetailViewController: UIViewController {
             
             self.tableView.reloadData()
         }
-            
+        
         MovieAPIController.fetchMovies(with: film.originalTitle) { (result) in
-            
-            //dispatch has to do with the view. if in background thread CANNOT UPDATE VIEW. print statemetns are okay, code changes are okay.
-            
-            //mightn not need this to call the function.
-            // DispatchQueue.main.async {
-            
             switch result{
-            
             case .success(let movie):
                 self.fetchPoster(for: movie)
-            //self.setCastMembers(for: movie)
-            
+                
             case .failure(let error):
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
             }
@@ -114,15 +101,11 @@ class FilmDetailViewController: UIViewController {
     }
     
     func fetchPoster(for movie: Movie){
-        
-        //move into own function (param of movie) pass in move[0]
         MovieAPIController.fetchMoviePoster(with: movie.posterPath ?? defaultURL) { [weak self]result in
-            //print(movie.posterImage)
             DispatchQueue.main.async {
                 switch result{
                 
                 case .success(let image):
-                    // self?.view.backgroundColor = UIColor(patternImage: image)
                     self?.view.contentMode = .scaleAspectFill
                     
                     self?.filmImageView.image = image
@@ -154,19 +137,10 @@ class FilmDetailViewController: UIViewController {
             switch result{
             case .success(let cast):
                 self.castMemebers = cast
-                print("number of cast is \(cast.count)")
             case .failure(let error):
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
             }
         }
-    }
-    
-    func blurr(){
-        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = view.bounds
-        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        view.insertSubview(blurEffectView, at: 0)
     }
     
 } // End of class
@@ -195,4 +169,4 @@ extension FilmDetailViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
-}
+}// End of Extension

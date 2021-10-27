@@ -7,14 +7,15 @@
 
 import Foundation
 
+// MARK: - MovieTopLevelObject
 struct MovieTopLevelObject: Decodable {
     let page: Int
     let results: [Movie]
     
 }
 
+// MARK: - Movie
 struct Movie: Decodable{
-    
     let originalTitle: String
     let posterPath: URL?
     let overview: String
@@ -27,15 +28,16 @@ struct Movie: Decodable{
         case overview = "overview"
         case rating = "vote_average"
         case id = "id"
-        
     }
-    
 }
+
+// MARK: - CastTopLevelObject
 struct CastTopLevelObject: Decodable {
     
     let cast: [Cast]
 }
 
+// MARK: - Cast
 struct Cast: Decodable{
     let id: Int
     let name: String
@@ -51,5 +53,3 @@ struct Cast: Decodable{
     }
     
 }
-
-

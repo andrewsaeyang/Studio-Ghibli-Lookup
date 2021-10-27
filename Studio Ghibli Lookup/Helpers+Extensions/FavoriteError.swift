@@ -19,5 +19,4 @@ enum FavoriteError: LocalizedError {
             return "could not unwrap Favorite information"
         }
     }
-}
-
+}//End of enum
