@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		492FFCCA2705893100598FDD /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492FFCC92705893100598FDD /* FavoritesTableViewCell.swift */; };
 		4948A9EE26F46B660093C789 /* VoiceActorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4948A9ED26F46B660093C789 /* VoiceActorTableViewCell.swift */; };
+		4950673A2729330C004A564A /* KeyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495067392729330C004A564A /* KeyConstants.swift */; };
 		495DD5AB26DEF13F0099296B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DD5AA26DEF13F0099296B /* AppDelegate.swift */; };
 		495DD5AD26DEF13F0099296B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DD5AC26DEF13F0099296B /* SceneDelegate.swift */; };
 		495DD5B226DEF13F0099296B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 495DD5B026DEF13F0099296B /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		492FFCC92705893100598FDD /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 		4948A9ED26F46B660093C789 /* VoiceActorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceActorTableViewCell.swift; sourceTree = "<group>"; };
+		495067392729330C004A564A /* KeyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyConstants.swift; sourceTree = "<group>"; };
 		495DD5A726DEF13F0099296B /* Studio Ghibli Lookup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Studio Ghibli Lookup.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		495DD5AA26DEF13F0099296B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		495DD5AC26DEF13F0099296B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			children = (
 				495DD60D26E048EE0099296B /* NetworkError.swift */,
 				4998037326EC283B008BBE9E /* FavoriteError.swift */,
+				495067392729330C004A564A /* KeyConstants.swift */,
 			);
 			path = "Helpers+Extensions";
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				49E07BC626E17C7A00871B1C /* FilmCollectionViewCell.swift in Sources */,
 				495DD5AB26DEF13F0099296B /* AppDelegate.swift in Sources */,
 				4948A9EE26F46B660093C789 /* VoiceActorTableViewCell.swift in Sources */,
+				4950673A2729330C004A564A /* KeyConstants.swift in Sources */,
 				4998037226EC2798008BBE9E /* FavoriteController.swift in Sources */,
 				495DD5AD26DEF13F0099296B /* SceneDelegate.swift in Sources */,
 				497C7F90270C1CAB008617A3 /* BingNewsAPI.swift in Sources */,

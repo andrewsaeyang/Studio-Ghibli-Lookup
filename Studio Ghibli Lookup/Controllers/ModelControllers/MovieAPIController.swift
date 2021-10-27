@@ -28,7 +28,7 @@ class MovieAPIController{
     
     // MARK: - QUERY ITEMS
     static let apiKeyKey = "api_key"
-    static let apiKeyValue = "a0c4dab30fc5e01de42209a6868523d2"
+    static let apiKeyValue = KeyConstants.TMDBAPIKey
     
     static let appendToResponseKey = "append_to_response"
     static let appendToResponseValue = "person"

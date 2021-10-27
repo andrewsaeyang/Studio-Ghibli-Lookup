@@ -8,12 +8,12 @@
 import UIKit
 
 class BingNewsAPIController{
-    
+
     static let searchURL = "https://bing-news-search1.p.rapidapi.com/news/search?q=%22Studio%20Ghibli%22&textFormat=Raw&safeSearch=Moderate"
     static let headers = [
         "x-bingapis-sdk": "true",
         "x-rapidapi-host": "bing-news-search1.p.rapidapi.com",
-        "x-rapidapi-key": "f0fbca4926msh39dfde0661fe8b3p14430cjsna6ebddf13a7b"
+        "x-rapidapi-key": KeyConstants.BingAPIKey
     ]
     
     static func fetchNews(completion:@escaping(Result<BingTopLevelObject, NetworkError>) -> Void){
