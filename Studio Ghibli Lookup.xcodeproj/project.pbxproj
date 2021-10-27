@@ -10,6 +10,7 @@
 		492FFCCA2705893100598FDD /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492FFCC92705893100598FDD /* FavoritesTableViewCell.swift */; };
 		4948A9EE26F46B660093C789 /* VoiceActorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4948A9ED26F46B660093C789 /* VoiceActorTableViewCell.swift */; };
 		4950673A2729330C004A564A /* KeyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495067392729330C004A564A /* KeyConstants.swift */; };
+		4950673C272936C9004A564A /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4950673B272936C9004A564A /* LaunchScreenViewController.swift */; };
 		495DD5AB26DEF13F0099296B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DD5AA26DEF13F0099296B /* AppDelegate.swift */; };
 		495DD5AD26DEF13F0099296B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DD5AC26DEF13F0099296B /* SceneDelegate.swift */; };
 		495DD5B226DEF13F0099296B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 495DD5B026DEF13F0099296B /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 		492FFCC92705893100598FDD /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 		4948A9ED26F46B660093C789 /* VoiceActorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceActorTableViewCell.swift; sourceTree = "<group>"; };
 		495067392729330C004A564A /* KeyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyConstants.swift; sourceTree = "<group>"; };
+		4950673B272936C9004A564A /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		495DD5A726DEF13F0099296B /* Studio Ghibli Lookup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Studio Ghibli Lookup.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		495DD5AA26DEF13F0099296B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		495DD5AC26DEF13F0099296B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				4998036026E7E785008BBE9E /* FavoritesTableViewController.swift */,
 				4998036226E80378008BBE9E /* FilmDetailViewController.swift */,
 				497C7F93270C2DBF008617A3 /* TheNewsViewController.swift */,
+				4950673B272936C9004A564A /* LaunchScreenViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				497C7F92270C24B0008617A3 /* BingNewsAPIController.swift in Sources */,
 				4998035B26E282F3008BBE9E /* MovieAPI.swift in Sources */,
 				4998035F26E2A1C6008BBE9E /* HomeViewController.swift in Sources */,
+				4950673C272936C9004A564A /* LaunchScreenViewController.swift in Sources */,
 				497C7FB1270F790D008617A3 /* NewsArticleTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
