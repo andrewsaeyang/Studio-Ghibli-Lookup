@@ -38,14 +38,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         //collectionView.reloadData()
     }
     
-    // MARK: - Actions
-    
-    
-    
     // MARK: - Helper Methods
     
     func fetchFavorites(){
-        print("Count before fetch: \(FavoriteController.shared.favorites.count)")
         FavoriteController.shared.fetchAllFavorites { result in
             DispatchQueue.main.async {
                 switch result{
@@ -56,8 +51,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 }
             }
         }
-        print("Count AFTER fetch: \(FavoriteController.shared.favorites.count)")
-        
     }
     
     func fetchFilms(){
@@ -94,7 +87,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             switch result{
             case .success(let cast):
                 destination.castMemebers = cast
-                print("number of cast is \(cast.count)")
             case .failure(let error):
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
             }

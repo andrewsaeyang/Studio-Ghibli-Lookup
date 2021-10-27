@@ -8,9 +8,8 @@
 import UIKit
 
 class FavoritesTableViewCell: UITableViewCell {
-
-    // MARK: - Properties
     
+    // MARK: - Properties
     var favoriteFilm: Favorite?{
         didSet{
             updateView()
@@ -25,5 +24,5 @@ class FavoritesTableViewCell: UITableViewCell {
         guard let favoriteFilm = favoriteFilm else { return }
         filmTitle.text = favoriteFilm.filmTitle
     }
-
-}
+    
+}// End of class

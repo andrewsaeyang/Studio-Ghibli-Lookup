@@ -16,7 +16,6 @@
 		495DD5B726DEF1420099296B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 495DD5B526DEF1420099296B /* LaunchScreen.storyboard */; };
 		495DD5C726DEF2500099296B /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 495DD5C626DEF2500099296B /* CloudKit.framework */; };
 		495DD60126E01E770099296B /* StudioGhibliAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DD60026E01E770099296B /* StudioGhibliAPI.swift */; };
-		495DD60726E02B540099296B /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DD60626E02B540099296B /* NewsViewController.swift */; };
 		495DD60B26E048880099296B /* StudioGhibliAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DD60A26E048880099296B /* StudioGhibliAPIController.swift */; };
 		495DD60E26E048EE0099296B /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DD60D26E048EE0099296B /* NetworkError.swift */; };
 		497C7F90270C1CAB008617A3 /* BingNewsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497C7F8F270C1CAB008617A3 /* BingNewsAPI.swift */; };
@@ -47,7 +46,6 @@
 		495DD5C426DEF24A0099296B /* Studio Ghibli Lookup.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Studio Ghibli Lookup.entitlements"; sourceTree = "<group>"; };
 		495DD5C626DEF2500099296B /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		495DD60026E01E770099296B /* StudioGhibliAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioGhibliAPI.swift; sourceTree = "<group>"; };
-		495DD60626E02B540099296B /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		495DD60A26E048880099296B /* StudioGhibliAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioGhibliAPIController.swift; sourceTree = "<group>"; };
 		495DD60D26E048EE0099296B /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		497C7F8F270C1CAB008617A3 /* BingNewsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingNewsAPI.swift; sourceTree = "<group>"; };
@@ -159,7 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				4998035E26E2A1C6008BBE9E /* HomeViewController.swift */,
-				495DD60626E02B540099296B /* NewsViewController.swift */,
 				4998036026E7E785008BBE9E /* FavoritesTableViewController.swift */,
 				4998036226E80378008BBE9E /* FilmDetailViewController.swift */,
 				497C7F93270C2DBF008617A3 /* TheNewsViewController.swift */,
@@ -172,8 +169,8 @@
 			children = (
 				495DD60A26E048880099296B /* StudioGhibliAPIController.swift */,
 				4998035C26E28307008BBE9E /* MovieAPIController.swift */,
-				4998037126EC2798008BBE9E /* FavoriteController.swift */,
 				497C7F91270C24B0008617A3 /* BingNewsAPIController.swift */,
+				4998037126EC2798008BBE9E /* FavoriteController.swift */,
 			);
 			path = ModelControllers;
 			sourceTree = "<group>";
@@ -282,7 +279,6 @@
 				495DD60B26E048880099296B /* StudioGhibliAPIController.swift in Sources */,
 				495DD60126E01E770099296B /* StudioGhibliAPI.swift in Sources */,
 				497C7F94270C2DBF008617A3 /* TheNewsViewController.swift in Sources */,
-				495DD60726E02B540099296B /* NewsViewController.swift in Sources */,
 				4998035D26E28307008BBE9E /* MovieAPIController.swift in Sources */,
 				495DD60E26E048EE0099296B /* NetworkError.swift in Sources */,
 				4998037426EC283B008BBE9E /* FavoriteError.swift in Sources */,

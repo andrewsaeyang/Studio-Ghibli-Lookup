@@ -22,7 +22,6 @@ class Favorite{
         self.filmID = id
         self.filmTitle = title
         self.recordID = recordID
-        
     }
     
     /*
@@ -58,4 +57,3 @@ extension Favorite: Equatable{
         lhs.filmID == rhs.filmID
     }
 } // End of Extension
-

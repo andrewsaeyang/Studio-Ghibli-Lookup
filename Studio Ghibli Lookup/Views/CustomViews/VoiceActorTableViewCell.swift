@@ -9,6 +9,7 @@ import UIKit
 
 class VoiceActorTableViewCell: UITableViewCell {
     
+    // MARK: - Outlets
     @IBOutlet weak var actorImageView: UIImageView!
     @IBOutlet weak var roleLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -54,4 +55,4 @@ class VoiceActorTableViewCell: UITableViewCell {
             print("NO CAST IMAGE URL")
         }
     }
-}
+}// End of class

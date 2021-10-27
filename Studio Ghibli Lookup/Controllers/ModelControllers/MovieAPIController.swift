@@ -111,17 +111,15 @@ class MovieAPIController{
     }
     
     //https://image.tmdb.org/t/p/w500/xi8z6MjzTovVDg8Rho6atJCcKjL.jpg
-    
+    ///This overloaded fetchPoster function is for specifically two films: "Only Yesterday" and "The Cat Returns"
     static func fetchMoviePoster(for poster: Bool, completion: @escaping (Result<UIImage, NetworkError>) -> Void){
         
         let finalURL: URL
         
         if poster {
-            //finalURL = URL(string: "https://image.tmdb.org/t/p/w500/tOSnFE9e82iH3ZAzSTtuOkBsabJ.jpg")!
             finalURL = URL(string: "https://image.tmdb.org/t/p/origin/tOSnFE9e82iH3ZAzSTtuOkBsabJ.jpg")!
             
         }else{
-            //finalURL = URL(string: "https://image.tmdb.org/t/p/w500/avPMO5cnaGHgLaNiAIhy33WoQLm.jpg")!
             finalURL = URL(string: "https://image.tmdb.org/t/p/origin/avPMO5cnaGHgLaNiAIhy33WoQLm.jpg")!
         }
         
@@ -195,5 +193,5 @@ class MovieAPIController{
     static func toggle(){
         
     }
-
+    
 }// End of class

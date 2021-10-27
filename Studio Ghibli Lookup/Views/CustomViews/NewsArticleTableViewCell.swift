@@ -17,13 +17,11 @@ class NewsArticleTableViewCell: UITableViewCell {
     }
     
     // MARK: - Outlets
-    
     @IBOutlet weak var articleImage: UIImageView!
     @IBOutlet weak var providerLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var articleTitle: UILabel!
     @IBOutlet weak var synopsisLabel: UILabel!
-    
     
     // MARK: - Helper methods
     func updateView(){
@@ -61,4 +59,4 @@ class NewsArticleTableViewCell: UITableViewCell {
         synopsisLabel.text = article.description
         
     }
-}
+}// End of class

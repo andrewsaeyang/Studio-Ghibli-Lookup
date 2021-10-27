@@ -41,15 +41,7 @@ class FilmCollectionViewCell: UICollectionViewCell {
         
         favoriteHelper(with: film)
         setFavoriteButton(for: film)
-        
-        //film.isFavorite.toggle()
-        print("Favorite Button tapped for \(film.title)")
-        //let newFavorite = Favorite(id: film.id)
-        
-        // FavoriteController.shared.favoriteTapped(with: newFavorite)
-        print("")
-        
-        
+     
     }
     // MARK: - Helper Methods
     
@@ -65,7 +57,7 @@ class FilmCollectionViewCell: UICollectionViewCell {
                     
                     case .success(let message):
                         print(message)
-                        //self.setFavoriteButton(for: film)
+                    //self.setFavoriteButton(for: film)
                     case .failure(let error):
                         print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                     }
@@ -78,7 +70,7 @@ class FilmCollectionViewCell: UICollectionViewCell {
                     switch result{
                     case .success(let message):
                         print(message)
-                        //self.setFavoriteButton(for: film)
+                    //self.setFavoriteButton(for: film)
                     case .failure(let error):
                         print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                     }
@@ -138,7 +130,6 @@ class FilmCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    ///This overloaded fetchPoster function is for specifically two films: "Only Yesterday" and "The Cat Returns"
     func fetchPoster(with isCat: Bool){
         MovieAPIController.fetchMoviePoster(for: isCat) { [weak self]result in
             
@@ -158,7 +149,6 @@ class FilmCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    
     func setFavoriteButton(for film: Film){
         if FavoriteController.shared.doesContain(film: film){
             
@@ -169,6 +159,7 @@ class FilmCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    //This function finds finds all the matching filmIDs stored in the favorites array and changes the hearts into heart.fill
     func setHearts(for film: Film){
         if FavoriteController.shared.doesContain(film: film){
             favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)

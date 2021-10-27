@@ -128,7 +128,6 @@ class FavoriteController{
         return retVal
     }
   
-    
     func favoriteTapped(with favorite: Favorite?){
         guard let favorite = favorite else { return }
         if FavoriteController.shared.favorites.contains(favorite){
