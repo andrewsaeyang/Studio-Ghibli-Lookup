@@ -52,7 +52,14 @@ class VoiceActorTableViewCell: UITableViewCell {
             }
         } else {
             
-            print("NO CAST IMAGE URL")
+            let defaultURL: URL = URL(string: "https://image.tmdb.org/t/p/w500/xi8z6MjzTovVDg8Rho6atJCcKjL.jpg")!
+            let data = try? Data(contentsOf: defaultURL)
+            
+            if let imageData = data{
+                let image = UIImage(data: imageData)
+                actorImageView.image = image
+                
+            }
         }
     }
 }// End of class
