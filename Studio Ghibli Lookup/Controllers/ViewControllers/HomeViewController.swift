@@ -9,19 +9,28 @@ import UIKit
 
 class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    // MARK: - Outlets
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    
+    
     // MARK: - Properties
     var films: [Film] = []
     var filteredFilms: [Film] = []
     var castMemebers: [Cast]?
     let highPriorityQueue = DispatchQueue.global(qos: .userInitiated)
     
-    // MARK: - Outlets
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var collectionView: UICollectionView!
-    
     // MARK: - Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loadingView.isHidden = false
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.startAnimating()
+        loadingView.backgroundColor = UIColor(white: 1, alpha: 0.6)
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -31,11 +40,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         fetchFavorites()
         self.title = "Home"
         
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        //collectionView.reloadData()
     }
     
     // MARK: - Helper Methods
@@ -49,6 +53,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 case .failure(let error):
                     print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                 }
+                self.loadingView.isHidden = true
+                self.loadingIndicator.stopAnimating()
             }
         }
     }
@@ -64,6 +70,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 case .failure(let error):
                     print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                 }
+                self.loadingView.isHidden = true
+                self.loadingIndicator.stopAnimating()
             }
         }
     }
@@ -81,7 +89,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func setCastMembers(for movie: Movie, destination: FilmDetailViewController){
-        
         MovieAPIController.fetchCastMembers(for: movie.id) { (result) in
             
             switch result{

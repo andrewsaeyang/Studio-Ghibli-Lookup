@@ -15,6 +15,10 @@ class FilmDetailViewController: UIViewController {
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var synopsisTextView: UILabel!
     
+    @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     
@@ -31,6 +35,11 @@ class FilmDetailViewController: UIViewController {
     // MARK: - Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadingView.isHidden = false
+        loadingIndicator.hidesWhenStopped = true
+        self.loadingIndicator.startAnimating()
+        self.loadingView.backgroundColor = UIColor(white: 1, alpha: 0.6)
+        
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -43,6 +52,7 @@ class FilmDetailViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         tableView.removeObserver(self, forKeyPath: "contentSize")
+        
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -70,6 +80,7 @@ class FilmDetailViewController: UIViewController {
         guard let film = film else { return }
         
         DispatchQueue.main.async {
+           
             
             self.title = film.title
             self.filmTitleLabel.text = film.title
@@ -77,17 +88,25 @@ class FilmDetailViewController: UIViewController {
             self.synopsisTextView.text = film.filmDescription
             
             self.tableView.reloadData()
+            
+            
+            MovieAPIController.fetchMovies(with: film.originalTitle) { (result) in
+                switch result{
+                case .success(let movie):
+                    self.fetchPoster(for: movie)
+                    
+                    
+                case .failure(let error):
+                    print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                }
+            }
+            
+            self.loadingView.isHidden = true
+            self.loadingIndicator.stopAnimating()
         }
         
-        MovieAPIController.fetchMovies(with: film.originalTitle) { (result) in
-            switch result{
-            case .success(let movie):
-                self.fetchPoster(for: movie)
-                
-            case .failure(let error):
-                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
-            }
-        }
+        
+        
     }
     func setEnglish(){
         filmTitleLabel.text = film?.title

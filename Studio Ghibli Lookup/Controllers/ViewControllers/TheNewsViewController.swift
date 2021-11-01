@@ -9,6 +9,12 @@ import UIKit
 
 class TheNewsViewController: UIViewController {
     
+    // MARK: - Outlets
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    
+    
     // MARK: - Propterties
     let reuseConstant = "newsArticleCell"
     
@@ -18,17 +24,21 @@ class TheNewsViewController: UIViewController {
         }
     }
     
-    // MARK: - Outlets
-    @IBOutlet weak var tableView: UITableView!
-    
     // MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "News"
-        fetchNewsArticles()
+        
+        loadingView.isHidden = false
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.startAnimating()
+        loadingView.backgroundColor = UIColor(white: 1, alpha: 0.6)
+        
         tableView.delegate = self
         tableView.dataSource = self
         self.tableView.separatorColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+        
+        fetchNewsArticles()
     }
     
     // MARK: - Helper Methods
@@ -42,6 +52,8 @@ class TheNewsViewController: UIViewController {
                 case .failure(let error):
                     print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                 }
+                self.loadingView.isHidden = true
+                self.loadingIndicator.stopAnimating()
             }
         }
     }
