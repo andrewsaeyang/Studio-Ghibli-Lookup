@@ -1,5 +1,5 @@
 //
-//  TheNewsViewController.swift
+//  NewsViewController.swift
 //  Studio Ghibli Lookup
 //
 //  Created by Andrew Saeyang on 10/4/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TheNewsViewController: UIViewController {
+class NewsViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
@@ -59,7 +59,7 @@ class TheNewsViewController: UIViewController {
     }
 } // End of class
 
-extension TheNewsViewController: UITableViewDelegate, UITableViewDataSource{
+extension NewsViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return newsArticles.count
     }
