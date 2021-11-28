@@ -6,16 +6,13 @@
 //
 
 import UIKit
+import SkeletonView
 
 class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     // MARK: - Outlets
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    @IBOutlet weak var loadingView: UIView!
-    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
-    
     
     // MARK: - Properties
     var films: [Film] = []
@@ -27,11 +24,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadingView.isHidden = false
-        loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.startAnimating()
-        loadingView.backgroundColor = UIColor(white: 1, alpha: 0.6)
-        
         collectionView.delegate = self
         collectionView.dataSource = self
         searchBar.delegate = self
@@ -40,6 +32,17 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         fetchFavorites()
         self.title = "Home"
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if films.isEmpty{
+            
+            collectionView.isSkeletonable = true
+            collectionView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete), animation: nil, transition: .crossDissolve(0.25))
+            //collectionView.showSkeleton(usingColor: .wetAsphalt, transition: .crossDissolve(0.25))
+            
+        }
     }
     
     // MARK: - Helper Methods
@@ -53,8 +56,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 case .failure(let error):
                     print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                 }
-                self.loadingView.isHidden = true
-                self.loadingIndicator.stopAnimating()
             }
         }
     }
@@ -66,12 +67,16 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 case .success(let films):
                     self.films = films
                     self.filteredFilms = films
-                    self.collectionView.reloadData()
+                    
+                   
+                    //self.collectionView.reloadData()
                 case .failure(let error):
                     print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                 }
-                self.loadingView.isHidden = true
-                self.loadingIndicator.stopAnimating()
+                
+                self.collectionView.stopSkeletonAnimation()
+                self.view.hideSkeleton()
+                self.collectionView.reloadData()
             }
         }
     }
@@ -160,6 +165,12 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
 } //End of extension
 
+// MARK: - Skeleton CollectionView Data Source Function
+extension HomeViewController: SkeletonCollectionViewDataSource{
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return "filmCell"
+    }
+}
 
 // MARK: - Search Bar Delegate Methods
 extension HomeViewController: UISearchBarDelegate{
@@ -187,6 +198,7 @@ extension HomeViewController: UISearchBarDelegate{
     }
 } //End of extension
 
+// MARK: - Reload Collection Delegate
 extension HomeViewController: ReloadCollectionDelegate{
     func updateCollectionView() {
         collectionView.reloadData()

@@ -6,39 +6,41 @@
 //
 
 import UIKit
+import SkeletonView
 
 class NewsViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var loadingView: UIView!
-    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
-    
-    
+        
     // MARK: - Propterties
     let reuseConstant = "newsArticleCell"
     
-    var newsArticles: [Article] = []{
-        didSet{
-            tableView.reloadData()
-        }
-    }
+    var newsArticles: [Article] = []
     
     // MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "News"
         
-        loadingView.isHidden = false
-        loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.startAnimating()
-        loadingView.backgroundColor = UIColor(white: 1, alpha: 0.6)
-        
         tableView.delegate = self
         tableView.dataSource = self
         self.tableView.separatorColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
         
         fetchNewsArticles()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if newsArticles.isEmpty{
+            
+            tableView.isSkeletonable = true
+            
+            //tableView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete), animation: nil, transition: .crossDissolve(0.25))
+            tableView.showSkeleton(usingColor: .concrete, transition: .crossDissolve(0.25))
+            
+        }
     }
     
     // MARK: - Helper Methods
@@ -52,8 +54,9 @@ class NewsViewController: UIViewController {
                 case .failure(let error):
                     print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                 }
-                self.loadingView.isHidden = true
-                self.loadingIndicator.stopAnimating()
+                self.tableView.stopSkeletonAnimation()
+                self.view.hideSkeleton()
+                //self.tableView.reloadData()
             }
         }
     }
@@ -76,3 +79,12 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource{
         }
     }
 }// End of Extension
+
+// MARK: - Skeleton TableView Data Source
+extension NewsViewController: SkeletonTableViewDataSource{
+    
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return reuseConstant
+    }
+    
+}

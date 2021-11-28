@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class FilmDetailViewController: UIViewController {
     

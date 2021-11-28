@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -220,7 +220,6 @@
 				6FC8717BCBA24BDC8846065B /* Pods-Studio Ghibli Lookup.debug.xcconfig */,
 				33105F1204D86303D348B98B /* Pods-Studio Ghibli Lookup.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -508,7 +507,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Studio Ghibli Lookup/Studio Ghibli Lookup.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 8V4AXZDZQP;
 				INFOPLIST_FILE = "Studio Ghibli Lookup/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -531,7 +530,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Studio Ghibli Lookup/Studio Ghibli Lookup.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 8V4AXZDZQP;
 				INFOPLIST_FILE = "Studio Ghibli Lookup/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
