@@ -13,12 +13,8 @@ class FilmDetailViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var filmImageView: UIImageView!
     @IBOutlet weak var filmTitleLabel: UILabel!
-    @IBOutlet weak var yearLabel: UILabel!
+    @IBOutlet weak var filmYearLabel: UILabel!
     @IBOutlet weak var synopsisTextView: UILabel!
-    
-    @IBOutlet weak var loadingView: UIView!
-    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
-    
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
@@ -36,11 +32,6 @@ class FilmDetailViewController: UIViewController {
     // MARK: - Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadingView.isHidden = false
-        loadingIndicator.hidesWhenStopped = true
-        self.loadingIndicator.startAnimating()
-        self.loadingView.backgroundColor = UIColor(white: 1, alpha: 0.6)
-        
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -48,6 +39,10 @@ class FilmDetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
+        
+        if filmImageView == nil{
+            fireSkeleton()
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -82,10 +77,9 @@ class FilmDetailViewController: UIViewController {
         
         DispatchQueue.main.async {
            
-            
             self.title = film.title
             self.filmTitleLabel.text = film.title
-            self.yearLabel.text = film.releaseDate
+            self.filmYearLabel.text = film.releaseDate
             self.synopsisTextView.text = film.filmDescription
             
             self.tableView.reloadData()
@@ -96,18 +90,28 @@ class FilmDetailViewController: UIViewController {
                 case .success(let movie):
                     self.fetchPoster(for: movie)
                     
-                    
                 case .failure(let error):
                     print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                 }
             }
-            
-            self.loadingView.isHidden = true
-            self.loadingIndicator.stopAnimating()
+            self.filmImageView.stopSkeletonAnimation()
+            self.filmTitleLabel.stopSkeletonAnimation()
+            self.filmYearLabel.stopSkeletonAnimation()
+            self.synopsisTextView.stopSkeletonAnimation()
+            self.view.hideSkeleton()
         }
+    }
+   
+    func fireSkeleton(){
+        filmImageView.isSkeletonable = true
+        filmTitleLabel.isSkeletonable = true
+        filmYearLabel.isSkeletonable = true
+        synopsisTextView.isSkeletonable = true
         
-        
-        
+        filmImageView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .silver), animation: nil, transition: .crossDissolve(0.25))
+        filmTitleLabel.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .silver), animation: nil, transition: .crossDissolve(0.25))
+        filmYearLabel.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .silver), animation: nil, transition: .crossDissolve(0.25))
+        synopsisTextView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .silver), animation: nil, transition: .crossDissolve(0.25))
     }
     func setEnglish(){
         filmTitleLabel.text = film?.title
