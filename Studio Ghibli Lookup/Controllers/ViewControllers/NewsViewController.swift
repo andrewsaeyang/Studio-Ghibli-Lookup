@@ -25,21 +25,19 @@ class NewsViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        self.tableView.separatorColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+        tableView.estimatedRowHeight = 128.5
+        tableView.separatorColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
         
         fetchNewsArticles()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+     
         
         if newsArticles.isEmpty{
-            
             tableView.isSkeletonable = true
-            
-            //tableView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete), animation: nil, transition: .crossDissolve(0.25))
-            tableView.showSkeleton(usingColor: .concrete, transition: .crossDissolve(0.25))
-            
+            tableView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .silver), animation: nil, transition: .crossDissolve(0.25))
         }
     }
     
@@ -56,7 +54,6 @@ class NewsViewController: UIViewController {
                 }
                 self.tableView.stopSkeletonAnimation()
                 self.view.hideSkeleton()
-                //self.tableView.reloadData()
             }
         }
     }
@@ -86,5 +83,5 @@ extension NewsViewController: SkeletonTableViewDataSource{
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
         return reuseConstant
     }
-    
+ 
 }

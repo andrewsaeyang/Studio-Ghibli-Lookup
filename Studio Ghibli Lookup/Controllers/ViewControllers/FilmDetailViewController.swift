@@ -34,15 +34,18 @@ class FilmDetailViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
         
-        if filmImageView == nil{
+        if filmTitleLabel.text == "(title)"{
+            
             fireSkeleton()
         }
+       
     }
     
     override func viewWillDisappear(_ animated: Bool) {

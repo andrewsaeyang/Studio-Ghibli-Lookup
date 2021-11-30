@@ -19,12 +19,35 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchImage" translatesAutoresizingMaskIntoConstraints="NO" id="9GB-tN-fWf">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="N46-s5-PLv">
+                                <rect key="frame" x="20" y="758" width="374" height="80"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TMDB LOGO2" translatesAutoresizingMaskIntoConstraints="NO" id="Anj-hu-pwk">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Anj-hu-pwk" secondAttribute="height" multiplier="1:1" id="6Rn-yT-xhP"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This product uses the TMDB API but is not endorsed or certified by TMDB." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BTd-rt-kdf">
+                                        <rect key="frame" x="88" y="0.0" width="286" height="80"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="BKv-e2-udS"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="9GB-tN-fWf" secondAttribute="bottom" id="69Y-Lx-Hyg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="N46-s5-PLv" secondAttribute="bottom" constant="24" id="HOe-NA-wv0"/>
+                            <constraint firstItem="N46-s5-PLv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="I9C-PO-xYH"/>
                             <constraint firstItem="9GB-tN-fWf" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="MEh-a9-Wlh"/>
+                            <constraint firstAttribute="trailing" secondItem="N46-s5-PLv" secondAttribute="trailing" constant="20" id="YnO-Np-5RU"/>
                             <constraint firstAttribute="trailing" secondItem="9GB-tN-fWf" secondAttribute="trailing" id="cZc-hg-NZM"/>
                             <constraint firstItem="9GB-tN-fWf" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="w7O-3S-0Je"/>
                         </constraints>
@@ -36,6 +59,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="TMDB LOGO2" width="185" height="133"/>
         <image name="launchImage" width="390" height="844"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

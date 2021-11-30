@@ -507,7 +507,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Studio Ghibli Lookup/Studio Ghibli Lookup.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 8V4AXZDZQP;
 				INFOPLIST_FILE = "Studio Ghibli Lookup/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -530,7 +530,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Studio Ghibli Lookup/Studio Ghibli Lookup.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 8V4AXZDZQP;
 				INFOPLIST_FILE = "Studio Ghibli Lookup/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
