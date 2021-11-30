@@ -3,14 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00575C1799451DA7C539CDA6 /* Pods_Studio_Ghibli_Lookup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E8BDC7541B447DB6F51F83 /* Pods_Studio_Ghibli_Lookup.framework */; };
 		492FFCCA2705893100598FDD /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492FFCC92705893100598FDD /* FavoritesTableViewCell.swift */; };
 		4948A9EE26F46B660093C789 /* VoiceActorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4948A9ED26F46B660093C789 /* VoiceActorTableViewCell.swift */; };
 		4950673A2729330C004A564A /* KeyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495067392729330C004A564A /* KeyConstants.swift */; };
-		4950673C272936C9004A564A /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4950673B272936C9004A564A /* LaunchScreenViewController.swift */; };
 		495DD5AB26DEF13F0099296B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DD5AA26DEF13F0099296B /* AppDelegate.swift */; };
 		495DD5AD26DEF13F0099296B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DD5AC26DEF13F0099296B /* SceneDelegate.swift */; };
 		495DD5B226DEF13F0099296B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 495DD5B026DEF13F0099296B /* Main.storyboard */; };
@@ -22,7 +22,7 @@
 		495DD60E26E048EE0099296B /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DD60D26E048EE0099296B /* NetworkError.swift */; };
 		497C7F90270C1CAB008617A3 /* BingNewsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497C7F8F270C1CAB008617A3 /* BingNewsAPI.swift */; };
 		497C7F92270C24B0008617A3 /* BingNewsAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497C7F91270C24B0008617A3 /* BingNewsAPIController.swift */; };
-		497C7F94270C2DBF008617A3 /* TheNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497C7F93270C2DBF008617A3 /* TheNewsViewController.swift */; };
+		497C7F94270C2DBF008617A3 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497C7F93270C2DBF008617A3 /* NewsViewController.swift */; };
 		497C7FB1270F790D008617A3 /* NewsArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497C7FB0270F790D008617A3 /* NewsArticleTableViewCell.swift */; };
 		4998035B26E282F3008BBE9E /* MovieAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4998035A26E282F3008BBE9E /* MovieAPI.swift */; };
 		4998035D26E28307008BBE9E /* MovieAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4998035C26E28307008BBE9E /* MovieAPIController.swift */; };
@@ -36,10 +36,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		33105F1204D86303D348B98B /* Pods-Studio Ghibli Lookup.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Studio Ghibli Lookup.release.xcconfig"; path = "Target Support Files/Pods-Studio Ghibli Lookup/Pods-Studio Ghibli Lookup.release.xcconfig"; sourceTree = "<group>"; };
 		492FFCC92705893100598FDD /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 		4948A9ED26F46B660093C789 /* VoiceActorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceActorTableViewCell.swift; sourceTree = "<group>"; };
 		495067392729330C004A564A /* KeyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyConstants.swift; sourceTree = "<group>"; };
-		4950673B272936C9004A564A /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		495DD5A726DEF13F0099296B /* Studio Ghibli Lookup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Studio Ghibli Lookup.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		495DD5AA26DEF13F0099296B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		495DD5AC26DEF13F0099296B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,7 +54,7 @@
 		495DD60D26E048EE0099296B /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		497C7F8F270C1CAB008617A3 /* BingNewsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingNewsAPI.swift; sourceTree = "<group>"; };
 		497C7F91270C24B0008617A3 /* BingNewsAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingNewsAPIController.swift; sourceTree = "<group>"; };
-		497C7F93270C2DBF008617A3 /* TheNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheNewsViewController.swift; sourceTree = "<group>"; };
+		497C7F93270C2DBF008617A3 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		497C7FB0270F790D008617A3 /* NewsArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsArticleTableViewCell.swift; sourceTree = "<group>"; };
 		4998035A26E282F3008BBE9E /* MovieAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAPI.swift; sourceTree = "<group>"; };
 		4998035C26E28307008BBE9E /* MovieAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAPIController.swift; sourceTree = "<group>"; };
@@ -65,6 +65,8 @@
 		4998037126EC2798008BBE9E /* FavoriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteController.swift; sourceTree = "<group>"; };
 		4998037326EC283B008BBE9E /* FavoriteError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteError.swift; sourceTree = "<group>"; };
 		49E07BC526E17C7A00871B1C /* FilmCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmCollectionViewCell.swift; sourceTree = "<group>"; };
+		6FC8717BCBA24BDC8846065B /* Pods-Studio Ghibli Lookup.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Studio Ghibli Lookup.debug.xcconfig"; path = "Target Support Files/Pods-Studio Ghibli Lookup/Pods-Studio Ghibli Lookup.debug.xcconfig"; sourceTree = "<group>"; };
+		A1E8BDC7541B447DB6F51F83 /* Pods_Studio_Ghibli_Lookup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Studio_Ghibli_Lookup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				495DD5C726DEF2500099296B /* CloudKit.framework in Frameworks */,
+				00575C1799451DA7C539CDA6 /* Pods_Studio_Ghibli_Lookup.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +88,7 @@
 				495DD5A926DEF13F0099296B /* Studio Ghibli Lookup */,
 				495DD5A826DEF13F0099296B /* Products */,
 				495DD5C526DEF2500099296B /* Frameworks */,
+				F2270C88133552A1904E3F3B /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -153,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				495DD5C626DEF2500099296B /* CloudKit.framework */,
+				A1E8BDC7541B447DB6F51F83 /* Pods_Studio_Ghibli_Lookup.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -161,10 +166,9 @@
 			isa = PBXGroup;
 			children = (
 				4998035E26E2A1C6008BBE9E /* HomeViewController.swift */,
-				4998036026E7E785008BBE9E /* FavoritesTableViewController.swift */,
 				4998036226E80378008BBE9E /* FilmDetailViewController.swift */,
-				497C7F93270C2DBF008617A3 /* TheNewsViewController.swift */,
-				4950673B272936C9004A564A /* LaunchScreenViewController.swift */,
+				497C7F93270C2DBF008617A3 /* NewsViewController.swift */,
+				4998036026E7E785008BBE9E /* FavoritesTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -210,6 +214,15 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
+		F2270C88133552A1904E3F3B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6FC8717BCBA24BDC8846065B /* Pods-Studio Ghibli Lookup.debug.xcconfig */,
+				33105F1204D86303D348B98B /* Pods-Studio Ghibli Lookup.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -217,9 +230,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 495DD5BB26DEF1420099296B /* Build configuration list for PBXNativeTarget "Studio Ghibli Lookup" */;
 			buildPhases = (
+				86B928744C44264F2F11A43E /* [CP] Check Pods Manifest.lock */,
 				495DD5A326DEF13F0099296B /* Sources */,
 				495DD5A426DEF13F0099296B /* Frameworks */,
 				495DD5A526DEF13F0099296B /* Resources */,
+				65E481B3838DF20D83FA3897 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -275,6 +290,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		65E481B3838DF20D83FA3897 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Studio Ghibli Lookup/Pods-Studio Ghibli Lookup-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Studio Ghibli Lookup/Pods-Studio Ghibli Lookup-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Studio Ghibli Lookup/Pods-Studio Ghibli Lookup-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		86B928744C44264F2F11A43E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Studio Ghibli Lookup-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		495DD5A326DEF13F0099296B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -284,7 +341,7 @@
 				4998036126E7E785008BBE9E /* FavoritesTableViewController.swift in Sources */,
 				495DD60B26E048880099296B /* StudioGhibliAPIController.swift in Sources */,
 				495DD60126E01E770099296B /* StudioGhibliAPI.swift in Sources */,
-				497C7F94270C2DBF008617A3 /* TheNewsViewController.swift in Sources */,
+				497C7F94270C2DBF008617A3 /* NewsViewController.swift in Sources */,
 				4998035D26E28307008BBE9E /* MovieAPIController.swift in Sources */,
 				495DD60E26E048EE0099296B /* NetworkError.swift in Sources */,
 				4998037426EC283B008BBE9E /* FavoriteError.swift in Sources */,
@@ -300,7 +357,6 @@
 				497C7F92270C24B0008617A3 /* BingNewsAPIController.swift in Sources */,
 				4998035B26E282F3008BBE9E /* MovieAPI.swift in Sources */,
 				4998035F26E2A1C6008BBE9E /* HomeViewController.swift in Sources */,
-				4950673C272936C9004A564A /* LaunchScreenViewController.swift in Sources */,
 				497C7FB1270F790D008617A3 /* NewsArticleTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,11 +501,13 @@
 		};
 		495DD5BC26DEF1420099296B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FC8717BCBA24BDC8846065B /* Pods-Studio Ghibli Lookup.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Studio Ghibli Lookup/Studio Ghibli Lookup.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 8V4AXZDZQP;
 				INFOPLIST_FILE = "Studio Ghibli Lookup/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -466,11 +524,13 @@
 		};
 		495DD5BD26DEF1420099296B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33105F1204D86303D348B98B /* Pods-Studio Ghibli Lookup.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Studio Ghibli Lookup/Studio Ghibli Lookup.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 8V4AXZDZQP;
 				INFOPLIST_FILE = "Studio Ghibli Lookup/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import SkeletonView
 
 class FilmDetailViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var filmImageView: UIImageView!
     @IBOutlet weak var filmTitleLabel: UILabel!
-    @IBOutlet weak var yearLabel: UILabel!
+    @IBOutlet weak var filmYearLabel: UILabel!
     @IBOutlet weak var synopsisTextView: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
@@ -33,16 +34,24 @@ class FilmDetailViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
+        
+        if filmTitleLabel.text == "(title)"{
+            
+            fireSkeleton()
+        }
+       
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         tableView.removeObserver(self, forKeyPath: "contentSize")
+        
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -70,24 +79,42 @@ class FilmDetailViewController: UIViewController {
         guard let film = film else { return }
         
         DispatchQueue.main.async {
-            
+           
             self.title = film.title
             self.filmTitleLabel.text = film.title
-            self.yearLabel.text = film.releaseDate
+            self.filmYearLabel.text = film.releaseDate
             self.synopsisTextView.text = film.filmDescription
             
             self.tableView.reloadData()
-        }
-        
-        MovieAPIController.fetchMovies(with: film.originalTitle) { (result) in
-            switch result{
-            case .success(let movie):
-                self.fetchPoster(for: movie)
-                
-            case .failure(let error):
-                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+            
+            
+            MovieAPIController.fetchMovies(with: film.originalTitle) { (result) in
+                switch result{
+                case .success(let movie):
+                    self.fetchPoster(for: movie)
+                    
+                case .failure(let error):
+                    print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                }
             }
+            self.filmImageView.stopSkeletonAnimation()
+            self.filmTitleLabel.stopSkeletonAnimation()
+            self.filmYearLabel.stopSkeletonAnimation()
+            self.synopsisTextView.stopSkeletonAnimation()
+            self.view.hideSkeleton()
         }
+    }
+   
+    func fireSkeleton(){
+        filmImageView.isSkeletonable = true
+        filmTitleLabel.isSkeletonable = true
+        filmYearLabel.isSkeletonable = true
+        synopsisTextView.isSkeletonable = true
+        
+        filmImageView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .silver), animation: nil, transition: .crossDissolve(0.25))
+        filmTitleLabel.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .silver), animation: nil, transition: .crossDissolve(0.25))
+        filmYearLabel.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .silver), animation: nil, transition: .crossDissolve(0.25))
+        synopsisTextView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .silver), animation: nil, transition: .crossDissolve(0.25))
     }
     func setEnglish(){
         filmTitleLabel.text = film?.title

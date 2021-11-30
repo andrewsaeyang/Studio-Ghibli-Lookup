@@ -1,34 +1,44 @@
 //
-//  TheNewsViewController.swift
+//  NewsViewController.swift
 //  Studio Ghibli Lookup
 //
 //  Created by Andrew Saeyang on 10/4/21.
 //
 
 import UIKit
+import SkeletonView
 
-class TheNewsViewController: UIViewController {
-    
-    // MARK: - Propterties
-    let reuseConstant = "newsArticleCell"
-    
-    var newsArticles: [Article] = []{
-        didSet{
-            tableView.reloadData()
-        }
-    }
+class NewsViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
+        
+    // MARK: - Propterties
+    let reuseConstant = "newsArticleCell"
+    
+    var newsArticles: [Article] = []
     
     // MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "News"
-        fetchNewsArticles()
+        
         tableView.delegate = self
         tableView.dataSource = self
-        self.tableView.separatorColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+        tableView.estimatedRowHeight = 128.5
+        tableView.separatorColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+        
+        fetchNewsArticles()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+     
+        
+        if newsArticles.isEmpty{
+            tableView.isSkeletonable = true
+            tableView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .silver), animation: nil, transition: .crossDissolve(0.25))
+        }
     }
     
     // MARK: - Helper Methods
@@ -42,12 +52,14 @@ class TheNewsViewController: UIViewController {
                 case .failure(let error):
                     print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                 }
+                self.tableView.stopSkeletonAnimation()
+                self.view.hideSkeleton()
             }
         }
     }
 } // End of class
 
-extension TheNewsViewController: UITableViewDelegate, UITableViewDataSource{
+extension NewsViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return newsArticles.count
     }
@@ -64,3 +76,12 @@ extension TheNewsViewController: UITableViewDelegate, UITableViewDataSource{
         }
     }
 }// End of Extension
+
+// MARK: - Skeleton TableView Data Source
+extension NewsViewController: SkeletonTableViewDataSource{
+    
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return reuseConstant
+    }
+ 
+}

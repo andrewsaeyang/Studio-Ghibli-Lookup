@@ -54,9 +54,33 @@ class NewsArticleTableViewCell: UITableViewCell {
         articleImage.layer.cornerRadius = 8
         
         providerLabel.text = article.provider[0].name
+      
         dateLabel.text = article.datePublished
         articleTitle.text = article.name
         synopsisLabel.text = article.description
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.sssssss'Z'"
+        let date = dateFormatter.date(from:article.datePublished)!
         
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "MMM dd, yyyy"
+        
+        dateLabel.text = dateFormatterPrint.string(from: date)
+    }
+    
+    func dateFormat(date1: String) -> Date{
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss UTC"
+        let date = dateFormatter.date(from:date1)!
+        
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month,.day], from: date)
+        
+        let finalDate = calendar.date(from: components)!
+        
+        return finalDate
     }
 }// End of class
