@@ -15,7 +15,6 @@ class NewsViewController: UIViewController {
         
     // MARK: - Propterties
     let reuseConstant = "newsArticleCell"
-    
     var newsArticles: [Article] = []
     
     // MARK: - Lifecycles
@@ -34,7 +33,6 @@ class NewsViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
      
-        
         if newsArticles.isEmpty{
             tableView.isSkeletonable = true
             tableView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .silver), animation: nil, transition: .crossDissolve(0.25))
@@ -79,9 +77,7 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource{
 
 // MARK: - Skeleton TableView Data Source
 extension NewsViewController: SkeletonTableViewDataSource{
-    
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
         return reuseConstant
     }
- 
-}
+}// End of Extension

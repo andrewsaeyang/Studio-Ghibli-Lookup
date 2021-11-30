@@ -41,7 +41,7 @@ class FilmCollectionViewCell: UICollectionViewCell {
         
         favoriteHelper(with: film)
         setFavoriteButton(for: film)
-     
+        
     }
     // MARK: - Helper Methods
     

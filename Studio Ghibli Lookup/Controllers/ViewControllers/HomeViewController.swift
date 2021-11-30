@@ -68,8 +68,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                     self.films = films
                     self.filteredFilms = films
                     
-                   
-                    //self.collectionView.reloadData()
+                    
+                //self.collectionView.reloadData()
                 case .failure(let error):
                     print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                 }

@@ -185,13 +185,4 @@ class MovieAPIController{
         }
         task.resume()
     }
-    
-    static func fetchCastMemberImage(for imgURL: URL, completion: @escaping(Result<UIImage, NetworkError>) -> Void){
-        
-    }
-    
-    static func toggle(){
-        
-    }
-    
 }// End of class

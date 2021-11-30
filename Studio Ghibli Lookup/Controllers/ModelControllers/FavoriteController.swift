@@ -11,7 +11,6 @@ import CloudKit
 class FavoriteController{
     
     static let shared = FavoriteController()
-    
     var favorites: [Favorite] = []
     
     //step 1: Declare if private or public DB
@@ -110,7 +109,7 @@ class FavoriteController{
         if getFavoriteFromSource(with: film).filmID == film.id {
             retVal.toggle()
         }
-      
+        
         print("doesContain is \(retVal)")
         return retVal
     }
@@ -127,7 +126,7 @@ class FavoriteController{
         }
         return retVal
     }
-  
+    
     func favoriteTapped(with favorite: Favorite?){
         guard let favorite = favorite else { return }
         if FavoriteController.shared.favorites.contains(favorite){

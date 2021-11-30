@@ -44,5 +44,4 @@ extension StudioGhibliAPIController{
         }
         task.resume()
     }
-    
 } // End of Extension

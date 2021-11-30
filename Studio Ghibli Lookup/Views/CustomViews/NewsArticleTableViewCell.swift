@@ -33,9 +33,7 @@ class NewsArticleTableViewCell: UITableViewCell {
             if let imageData = data{
                 let image = UIImage(data: imageData)
                 articleImage.image = image
-                
             }else{
-                
                 print("NO DATA FOR ARTICLE IMAGE")
             }
         } else {
@@ -46,7 +44,6 @@ class NewsArticleTableViewCell: UITableViewCell {
             if let imageData = data{
                 let image = UIImage(data: imageData)
                 articleImage.image = image
-                
             }
         }
         
@@ -54,11 +51,11 @@ class NewsArticleTableViewCell: UITableViewCell {
         articleImage.layer.cornerRadius = 8
         
         providerLabel.text = article.provider[0].name
-      
+        
         dateLabel.text = article.datePublished
         articleTitle.text = article.name
         synopsisLabel.text = article.description
-
+        
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.sssssss'Z'"

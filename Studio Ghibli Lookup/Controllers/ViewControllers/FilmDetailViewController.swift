@@ -45,13 +45,11 @@ class FilmDetailViewController: UIViewController {
             
             fireSkeleton()
         }
-       
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         tableView.removeObserver(self, forKeyPath: "contentSize")
-        
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -79,14 +77,12 @@ class FilmDetailViewController: UIViewController {
         guard let film = film else { return }
         
         DispatchQueue.main.async {
-           
+            
             self.title = film.title
             self.filmTitleLabel.text = film.title
             self.filmYearLabel.text = film.releaseDate
             self.synopsisTextView.text = film.filmDescription
-            
             self.tableView.reloadData()
-            
             
             MovieAPIController.fetchMovies(with: film.originalTitle) { (result) in
                 switch result{
@@ -104,7 +100,7 @@ class FilmDetailViewController: UIViewController {
             self.view.hideSkeleton()
         }
     }
-   
+    
     func fireSkeleton(){
         filmImageView.isSkeletonable = true
         filmTitleLabel.isSkeletonable = true
@@ -116,15 +112,16 @@ class FilmDetailViewController: UIViewController {
         filmYearLabel.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .silver), animation: nil, transition: .crossDissolve(0.25))
         synopsisTextView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .silver), animation: nil, transition: .crossDissolve(0.25))
     }
+    
     func setEnglish(){
         filmTitleLabel.text = film?.title
         title = film?.title
     }
+    
     func setJapanese(){
         //filmTitleLabel.text = film?.originalTitle
         filmTitleLabel.text = film?.originalTitleRomanised
         title = film?.originalTitle
-        
     }
     
     func fetchPoster(for movie: Movie){
@@ -169,7 +166,6 @@ class FilmDetailViewController: UIViewController {
             }
         }
     }
-    
 } // End of class
 
 extension FilmDetailViewController: UITableViewDelegate, UITableViewDataSource{
