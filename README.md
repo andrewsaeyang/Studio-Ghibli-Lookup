@@ -1,5 +1,11 @@
 # Studio-Ghibli-Lookup
 
+<img src="https://imgur.com/FXFcnlk.jpg" width="30%" height="30%">  <img src="https://imgur.com/tVhrXZi.jpg" width="30%" height="30%"> <img src="https://imgur.com/G1fmx8r.jpg" width="30%" height="30%">
+
+
+
+
+
 This app was my solo project during the solo project phase at Devmountain.
 
 Studio Ghibli Look up is a simple app that provides information about Studio Ghibli's films (e.g. synopsis, voice actors etc.) using The Movie Database (TMDB) API. It also provides links to the latest news articles related to Studio Ghibli through Bing News API.
