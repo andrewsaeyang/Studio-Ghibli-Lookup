@@ -51,5 +51,4 @@ struct Cast: Decodable{
         case knownForDepartment = "known_for_department"
         case profilePath = "profile_path"
     }
-    
 }
