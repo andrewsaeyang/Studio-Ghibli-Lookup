@@ -50,7 +50,6 @@ class FilmCollectionViewCell: UICollectionViewCell {
         
         //case: There is a matching film
         if FavoriteController.shared.doesContain(film: film){
-            
             FavoriteController.shared.deleteFavorite(favorite: FavoriteController.shared.getFavoriteFromSource(with: film)) { result in
                 DispatchQueue.main.async {
                     switch result{

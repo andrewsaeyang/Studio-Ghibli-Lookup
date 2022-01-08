@@ -31,7 +31,11 @@
 		4998036326E80378008BBE9E /* FilmDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4998036226E80378008BBE9E /* FilmDetailViewController.swift */; };
 		4998037026EBD2A4008BBE9E /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4998036F26EBD2A4008BBE9E /* Favorite.swift */; };
 		4998037226EC2798008BBE9E /* FavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4998037126EC2798008BBE9E /* FavoriteController.swift */; };
-		4998037426EC283B008BBE9E /* FavoriteError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4998037326EC283B008BBE9E /* FavoriteError.swift */; };
+		4998037426EC283B008BBE9E /* NoteError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4998037326EC283B008BBE9E /* NoteError.swift */; };
+		49DC04512788054B00CB5F2B /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DC04502788054B00CB5F2B /* Note.swift */; };
+		49DC045327880E9700CB5F2B /* NoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DC045227880E9700CB5F2B /* NoteController.swift */; };
+		49DC0457278819F000CB5F2B /* NoteListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DC0456278819F000CB5F2B /* NoteListTableViewController.swift */; };
+		49DC045927881A0C00CB5F2B /* NoteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DC045827881A0C00CB5F2B /* NoteDetailViewController.swift */; };
 		49E07BC626E17C7A00871B1C /* FilmCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E07BC526E17C7A00871B1C /* FilmCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,7 +67,11 @@
 		4998036226E80378008BBE9E /* FilmDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmDetailViewController.swift; sourceTree = "<group>"; };
 		4998036F26EBD2A4008BBE9E /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		4998037126EC2798008BBE9E /* FavoriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteController.swift; sourceTree = "<group>"; };
-		4998037326EC283B008BBE9E /* FavoriteError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteError.swift; sourceTree = "<group>"; };
+		4998037326EC283B008BBE9E /* NoteError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteError.swift; sourceTree = "<group>"; };
+		49DC04502788054B00CB5F2B /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		49DC045227880E9700CB5F2B /* NoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteController.swift; sourceTree = "<group>"; };
+		49DC0456278819F000CB5F2B /* NoteListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListTableViewController.swift; sourceTree = "<group>"; };
+		49DC045827881A0C00CB5F2B /* NoteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailViewController.swift; sourceTree = "<group>"; };
 		49E07BC526E17C7A00871B1C /* FilmCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmCollectionViewCell.swift; sourceTree = "<group>"; };
 		6FC8717BCBA24BDC8846065B /* Pods-Studio Ghibli Lookup.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Studio Ghibli Lookup.debug.xcconfig"; path = "Target Support Files/Pods-Studio Ghibli Lookup/Pods-Studio Ghibli Lookup.debug.xcconfig"; sourceTree = "<group>"; };
 		A1E8BDC7541B447DB6F51F83 /* Pods_Studio_Ghibli_Lookup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Studio_Ghibli_Lookup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,6 +157,7 @@
 				4998035A26E282F3008BBE9E /* MovieAPI.swift */,
 				497C7F8F270C1CAB008617A3 /* BingNewsAPI.swift */,
 				4998036F26EBD2A4008BBE9E /* Favorite.swift */,
+				49DC04502788054B00CB5F2B /* Note.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -169,6 +178,8 @@
 				4998036226E80378008BBE9E /* FilmDetailViewController.swift */,
 				497C7F93270C2DBF008617A3 /* NewsViewController.swift */,
 				4998036026E7E785008BBE9E /* FavoritesTableViewController.swift */,
+				49DC0456278819F000CB5F2B /* NoteListTableViewController.swift */,
+				49DC045827881A0C00CB5F2B /* NoteDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -180,6 +191,7 @@
 				4998035C26E28307008BBE9E /* MovieAPIController.swift */,
 				497C7F91270C24B0008617A3 /* BingNewsAPIController.swift */,
 				4998037126EC2798008BBE9E /* FavoriteController.swift */,
+				49DC045227880E9700CB5F2B /* NoteController.swift */,
 			);
 			path = ModelControllers;
 			sourceTree = "<group>";
@@ -188,7 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				495DD60D26E048EE0099296B /* NetworkError.swift */,
-				4998037326EC283B008BBE9E /* FavoriteError.swift */,
+				4998037326EC283B008BBE9E /* NoteError.swift */,
 				495067392729330C004A564A /* KeyConstants.swift */,
 			);
 			path = "Helpers+Extensions";
@@ -344,13 +356,17 @@
 				497C7F94270C2DBF008617A3 /* NewsViewController.swift in Sources */,
 				4998035D26E28307008BBE9E /* MovieAPIController.swift in Sources */,
 				495DD60E26E048EE0099296B /* NetworkError.swift in Sources */,
-				4998037426EC283B008BBE9E /* FavoriteError.swift in Sources */,
+				4998037426EC283B008BBE9E /* NoteError.swift in Sources */,
 				49E07BC626E17C7A00871B1C /* FilmCollectionViewCell.swift in Sources */,
+				49DC04512788054B00CB5F2B /* Note.swift in Sources */,
 				495DD5AB26DEF13F0099296B /* AppDelegate.swift in Sources */,
 				4948A9EE26F46B660093C789 /* VoiceActorTableViewCell.swift in Sources */,
 				4950673A2729330C004A564A /* KeyConstants.swift in Sources */,
 				4998037226EC2798008BBE9E /* FavoriteController.swift in Sources */,
 				495DD5AD26DEF13F0099296B /* SceneDelegate.swift in Sources */,
+				49DC0457278819F000CB5F2B /* NoteListTableViewController.swift in Sources */,
+				49DC045327880E9700CB5F2B /* NoteController.swift in Sources */,
+				49DC045927881A0C00CB5F2B /* NoteDetailViewController.swift in Sources */,
 				497C7F90270C1CAB008617A3 /* BingNewsAPI.swift in Sources */,
 				4998037026EBD2A4008BBE9E /* Favorite.swift in Sources */,
 				492FFCCA2705893100598FDD /* FavoritesTableViewCell.swift in Sources */,
@@ -507,18 +523,18 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Studio Ghibli Lookup/Studio Ghibli Lookup.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 8V4AXZDZQP;
 				INFOPLIST_FILE = "Studio Ghibli Lookup/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AndrewDev.Studio-Ghibli-Lookup";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -530,18 +546,18 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Studio Ghibli Lookup/Studio Ghibli Lookup.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 8V4AXZDZQP;
 				INFOPLIST_FILE = "Studio Ghibli Lookup/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AndrewDev.Studio-Ghibli-Lookup";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
