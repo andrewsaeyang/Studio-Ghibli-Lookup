@@ -178,9 +178,6 @@ extension FilmDetailViewController: UITableViewDelegate, UITableViewDataSource{
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "actorCell", for: indexPath) as? VoiceActorTableViewCell,
               let castMembers = castMemebers else { return UITableViewCell()}
         
-        //cell.nameLabel.text = castMembers[indexPath.row].name
-        //cell.roleLabel.text = castMembers[indexPath.row].character
-        
         cell.castMember = castMembers[indexPath.row]
         
         return cell

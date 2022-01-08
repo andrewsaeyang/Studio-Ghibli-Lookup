@@ -17,7 +17,7 @@ class FavoriteController{
     let privateDB = CKContainer.default().privateCloudDatabase
     
     //CRUD
-    func createFavorite(with id: String, title: String, completion: @escaping(Result<String, FavoriteError>) -> Void) {
+    func createFavorite(with id: String, title: String, completion: @escaping(Result<String, NoteError>) -> Void) {
         let favorite = Favorite(id: id, title: title)
         
         //Step 2: after creating object, call the ckRecord init
@@ -40,7 +40,7 @@ class FavoriteController{
     }
     
     //query the db
-    func fetchAllFavorites(completion: @escaping (Result<String, FavoriteError>) -> Void){
+    func fetchAllFavorites(completion: @escaping (Result<String, NoteError>) -> Void){
         
         //predicate states that we want everything
         let predicate = NSPredicate (value: true)
@@ -51,7 +51,7 @@ class FavoriteController{
         privateDB.perform(query, inZoneWith: nil){ records, error in
             if let error = error{
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
-                return completion(.failure((.cKerror(error))))
+                return completion(.failure((.ckError(error))))
             }
             
             guard let records = records else { return completion(.failure(.couldNotUnwrap))}
@@ -63,7 +63,7 @@ class FavoriteController{
         }
     }
     
-    func update(favorite: Favorite, completion: @escaping(Result<String, FavoriteError>) -> Void){
+    func update(favorite: Favorite, completion: @escaping(Result<String, NoteError>) -> Void){
         let record = CKRecord(favorite: favorite)
         
         let modOP = CKModifyRecordsOperation(recordsToSave: [record], recordIDsToDelete: nil)
@@ -74,7 +74,7 @@ class FavoriteController{
         modOP.modifyRecordsCompletionBlock = { records, _ , error in
             if let error = error {
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
-                return completion(.failure(.cKerror(error)))
+                return completion(.failure(.ckError(error)))
             }
             
             guard let record = records?.first,
@@ -87,11 +87,11 @@ class FavoriteController{
         privateDB.add(modOP)
     }
     
-    func deleteFavorite(favorite: Favorite, completion: @escaping(Result<String, FavoriteError>) -> Void){
+    func deleteFavorite(favorite: Favorite, completion: @escaping(Result<String, NoteError>) -> Void){
         privateDB.delete(withRecordID: favorite.recordID) { recordID, error in
             if let error = error{
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
-                return completion(.failure(.cKerror(error)))
+                return completion(.failure(.ckError(error)))
             }
             guard let recordID = recordID else { return completion(.failure(.couldNotUnwrap))}
             
